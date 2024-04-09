@@ -9,18 +9,26 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->integer('transaction_ref');
+            $table->integer('user_id');
+            $table->enum('type', ['deposit', 'withdrawal', 'purchase']);
+            $table->decimal('amount', 10, 2);
             $table->timestamps();
         });
+
+        // Add more tables as needed based on the provided documentation
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('transactions');
     }

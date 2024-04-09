@@ -6,10 +6,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\CanRefer;
+use App\Traits\CanManageCourses;
+use App\Traits\CanPromoteProducts;
+use App\Traits\CanShareContent;
+use App\Traits\HasRoles;
+use App\Traits\HasWallet;
+
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    use CanRefer;
+    use CanShareContent;
+    use CanPromoteProducts;
+    use CanManageCourses;
+    use HasRoles;
+    use HasWallet;
 
     /**
      * The attributes that are mass assignable.
@@ -20,6 +33,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'referral_code',
+        'valid_id'
     ];
 
     /**

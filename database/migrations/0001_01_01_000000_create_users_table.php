@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('password');
             $table->string('referral_code')->nullable();
             $table->string('valid_id')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('account_name')->nullable();
+            $table->integer('account_number')->nullable();
+            $table->boolean('status')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -31,7 +35,7 @@ return new class extends Migration
 
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
+            $table->integer('user_id')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->longText('payload');
@@ -41,15 +45,15 @@ return new class extends Migration
         // Assuming you have roles for users
         Schema::create('user_roles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('role');
+            $table->integer('user_id');
+            $table->integer('role');
             $table->timestamps();
         });
 
         // Assuming you have a wallet system for users
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->integer('user_id');
             $table->decimal('balance', 10, 2)->default(0);
             $table->timestamps();
         });
@@ -57,8 +61,8 @@ return new class extends Migration
         // Assuming you have referral relationships between users
         Schema::create('referrals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('referrer_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('referred_id')->constrained('users')->onDelete('cascade');
+            $table->integer('referrer_id');
+            $table->integer('referred_id');
             $table->timestamps();
         });
 

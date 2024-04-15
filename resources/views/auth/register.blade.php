@@ -1,52 +1,52 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
-
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+@extends('layouts.guest')
+@section('content')
+<div class="sign_in_up_bg">
+    <div class="container">
+        <div class="row justify-content-lg-center justify-content-md-center">
+            <div class="col-lg-12">
+                <div class="main_logo25" id="logo">
+                    <a href="index.html"><img src="images/logo.svg" alt=""></a>
+                    <a href="index.html"><img class="logo-inverse" src="images/ct_logo.svg" alt=""></a>
+                </div>
+            </div>
+        
+            <div class="col-lg-6 col-md-8">
+                <div class="sign_form">
+                    <h2>Welcome to Cursus</h2>
+                    <p>Sign Up and Start Learning!</p>
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <div class="ui search focus">
+                            <div class="ui left icon input swdh11 swdh19">
+                                <input class="prompt srch_explore" type="text" name="name" value="" id="name" required="" maxlength="64" placeholder="Full Name">															
+                            </div>
+                        </div>
+                        <div class="ui search focus mt-15">
+                            <div class="ui left icon input swdh11 swdh19">
+                                <input class="prompt srch_explore" type="email" name="email" value="" id="email" required="" maxlength="64" placeholder="Email Address">															
+                            </div>
+                        </div>
+                        <div class="ui search focus mt-15">
+                            <div class="ui left icon input swdh11 swdh19">
+                                <input class="prompt srch_explore" type="password" name="password" value="" id="password" required="" maxlength="64" placeholder="Password">															
+                            </div>
+                        </div>
+                        <div class="ui form mt-30 checkbox_sign">
+                            <div class="inline field">
+                                <div class="ui checkbox mncheck">
+                                    <input type="checkbox" tabindex="0" class="hidden">
+                                    <label>I’m in for emails with exciting discounts and personalized recommendations</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="login-btn" type="submit">Create Account</button>
+                    </form>
+                    <p class="sgntrm145">By signing up, you agree to our <a href="terms_of_use.html">Terms of Use</a> and <a href="terms_of_use.html">Privacy Policy</a>.</p>
+                    <p class="mb-0 mt-30">Already have an account? <a href="/register">Log In</a></p>
+                </div>
+                <div class="sign_footer"><img src="images/sign_logo.png" alt="">© 2024 <strong>Cursus</strong>. All Rights Reserved.</div>
+            </div>				
+        </div>				
+    </div>				
+</div>
+@endsection

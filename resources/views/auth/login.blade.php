@@ -1,51 +1,53 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4 alert alert-info" :status="session('status')" />
-
-    <form method="POST" action="{{ route('login') }}" >
-        @csrf
-
-        <!-- Email Address -->
-        <div class="form-group">
-            <x-input-label for="email" :value="__('Username or Email')" class="text-dark" />
-            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="form-group">
-            <x-input-label for="password" :value="__('Password')" class="text-dark" />
-
-            <x-text-input id="password" class="form-control"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="form-row d-flex justify-content-between mt-4 mb-2">
-
-            <div class="form-group">
-                <input id="remember_me" type="checkbox" class="form-check-input" name="remember">
-                <label for="remember_me" class="form-check-label text-dark">{{ __('Remember me') }}</label>
+@extends('layouts.guest')
+@section('content')
+<div class="sign_in_up_bg">
+    <div class="container">
+        <div class="row justify-content-lg-center justify-content-md-center">
+            <div class="col-lg-12">
+                <div class="main_logo25" id="logo">
+                    <a href="index.html"><img src="images/logo.svg" alt=""></a>
+                    <a href="index.html"><img class="logo-inverse" src="images/ct_logo.svg" alt=""></a>
+                </div>
             </div>
-    
-            <div class="form-group">
-                @if (Route::has('password.request'))
-                    <a class="text-decoration-none justify-content-end float-right text-dark" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-    
-            </div>
-        </div>
-        <div class=" text-center">
-
-            <x-primary-button type="submit" class="btn btn-primary btn-block rounded-lg">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+        
+            <div class="col-lg-6 col-md-8">
+                <div class="sign_form">
+                    <h2>Welcome Back</h2>
+                    <p>Log In to Your Cursus Account!</p>
+                    
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="ui search focus mt-15">
+                            <div class="ui left icon input swdh95">
+                                <input class="prompt srch_explore" type="email" name="email" value="" id="id_email" required="" maxlength="64" placeholder="Email Address">															
+                                <i class="uil uil-envelope icon icon2"></i>
+                            </div>
+                        </div>
+                        <div class="ui search focus mt-15">
+                            <div class="ui left icon input swdh95">
+                                <input class="prompt srch_explore" type="password" name="password" value="" id="id_password" required="" maxlength="64" placeholder="Password">
+                                <i class="uil uil-key-skeleton-alt icon icon2"></i>
+                            </div>
+                        </div>
+                        <div class="ui form mt-30 checkbox_sign">
+                            <div class="inline field">
+                                <div class="ui checkbox mncheck">
+                                    <input type="checkbox" tabindex="0" class="hidden">
+                                    <label>Remember Me</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="login-btn" type="submit">Sign In</button>
+                    </form>
+                    <p class="sgntrm145">Or <a href="forgot_password.html">Forgot Password</a>.</p>
+                    <button class="social_lnk_btn color_btn_fb"><i class="uil uil-facebook-f"></i>Continue with Facebook</button>
+                    <button class="social_lnk_btn mt-15 color_btn_tw"><i class="uil uil-twitter"></i>Continue with Twitter</button>
+                    <button class="social_lnk_btn mt-15 color_btn_go"><i class="uil uil-google"></i>Continue with Google</button>
+                    <p class="mb-0 mt-30 hvsng145">Don't have an account? <a href="/register">Sign Up</a></p>
+                </div>
+                <div class="sign_footer"><img src="images/sign_logo.png" alt="">© 2024 <strong>Cursus</strong>. All Rights Reserved.</div>
+            </div>				
+        </div>				
+    </div>				
+</div>
+@endsection

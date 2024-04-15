@@ -1,43 +1,47 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=9">
+    <meta name="description" content="Gambolthemes">
+    <meta name="author" content="Gambolthemes">
+    <title>{{ env('APP_NAME') }}</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="images/fav.png">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Stylesheets -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
+    <link href="{{ asset('vendor/unicons-2.0.1/css/unicons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/vertical-responsive-menu.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/night-mode.css') }}" rel="stylesheet">
+
+    <!-- Vendor Stylesheets -->
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/OwlCarousel/assets/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/OwlCarousel/assets/owl.theme.default.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/semantic/semantic.min.css') }}" rel="stylesheet">
 
 
-    <link href="./css/style.css" rel="stylesheet">
 </head>
 
 <body class="h-100 bg-white">
     @include('partial.header')
-    <div class="container">
-        <div class="authincation h-100">
-            <div class="container-fluid h-100">
-                <div class="row justify-content-center h-100 align-items-center">
-                    <div class="col-md-5">
-                        <div class="authincation-content  " style="margin-top: 20%;">
-                            <div class="row no-gutters">
-                                <div class="col-xl-12">
-                                    <div class="auth-form">
-                                        <h4 class="text-center mb-4">Sign in your account</h4>
-                                        {{ $slot }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @yield('content')
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/OwlCarousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap-select/docs/docs/dist/js/bootstrap-select.js') }}"></script>
+    <script src="{{ asset('vendor/semantic/semantic.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/night-mode.js') }}"></script>
+
 </body>
 
 </html>

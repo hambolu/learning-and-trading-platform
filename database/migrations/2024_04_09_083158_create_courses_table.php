@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->string('section_name')->nullable();
+            $table->string('lecture_title')->nullable();
+            $table->string('video_type')->nullable();
+            $table->string('video_url')->nullable();
+            $table->text('attachment_ids')->nullable();
             $table->decimal('price', 10, 2);
             $table->boolean('is_paid')->default(true);
             // Add more columns as needed based on the provided documentation
@@ -43,7 +48,7 @@ return new class extends Migration
             $table->integer('category_id');
             $table->primary(['course_id', 'category_id']);
         });
-        
+
         // Add more tables as needed based on the provided documentation
     }
 

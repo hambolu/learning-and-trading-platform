@@ -24,13 +24,10 @@
         </div>
         <div class="header_right">
             <ul>
-                <li>
-                    <a href="/create-course" class="upload_btn" title="Create New Course">Create New Course</a>
-                </li>
-                <li>
-                    <a href="#" class="upload_btn" title="Create New Course" data-bs-toggle="modal"
-                        data-bs-target="#create_category">Create Course Category</a>
-                </li>
+               
+                    
+               @include('partial.course-category-button')
+                
                 <li>
                     <a href="shopping_cart.html" class="option_links" title="cart"><i
                             class='uil uil-shopping-cart-alt'></i><span
@@ -60,8 +57,10 @@
         <div class="sa4d25">
             <div class="container-fluid">
                 @include('partial.create-category')
+                @include('partial.payout')
                 <div class="row">
                     <div class="col-xl-9 col-lg-8">
+                        
                         <div class="section3125">
                             <h4 class="item_title">Categories</h4>
                             <a href="/categories" class="see150">See all</a>
@@ -1068,26 +1067,28 @@
                                 </div>
                                 <div class="tutor_content_dt">
                                     <div class="tutor150">
-                                        <a href="my_instructor_profile_view.html" class="tutor_name">Joginder Singh</a>
+                                        <a href="my_instructor_profile_view.html" class="tutor_name">{{ Auth::user()->name }}</a>
                                         <div class="mef78" title="Verify">
                                             <i class="uil uil-check-circle"></i>
                                         </div>
                                     </div>
-                                    <div class="tutor_cate">Web Developer, Designer, and Teacher</div>
+                                   
                                     <ul class="tutor_social_links">
                                         <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
                                         <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
                                         <li><a href="#" class="ln"><i class="fab fa-linkedin-in"></i></a></li>
                                         <li><a href="#" class="yu"><i class="fab fa-youtube"></i></a></li>
                                     </ul>
-                                    <div class="tut1250">
-                                        <span class="vdt15">615K Students</span>
-                                        <span class="vdt15">12 Courses</span>
-                                    </div>
+                                    
                                     <a href="/profile" class="prfle12link">Go To Profile</a>
-									<p>Wallet Balance: 0.00 
+									<p>Wallet Balance: {{ Auth::user()->wallet->balance ?? 0.00 }}
 									</p>
-									<button class="btn btn-primary"><i class="fa fa-plus"></i>Add Funds</button>
+                                    <div class="d-flex">
+                                        <button class="btn btn-primary" style="font-size: 12px;"  title="Add Fund" data-bs-toggle="modal"
+                                        data-bs-target="#add_fund">Add Funds</button>
+                                        <button class="btn btn-primary" style="font-size: 12px;"  title="Pay Out" data-bs-toggle="modal"
+                                        data-bs-target="#payout">Pay Out</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="fcrse_3">
@@ -1223,6 +1224,7 @@
                         </div>
                     </div>
                 </div>
+                @include('partial.fund-wallet')
             </div>
         </div>
         <footer class="footer mt-30">

@@ -17,7 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+    Route::get('/create-course', function () {
+        return view('create-course');
+    });
     //category
     Route::post('create_category',[CourseController::class, 'createCategory'])->name('create_category');
 });

@@ -1,6 +1,6 @@
 ﻿@extends('layouts.app')
 @section('content')
-	
+@include('partial.sidebar')
 <!-- Add New Section Start -->
 <div class="modal fade" id="add_section_model" tabindex="-1" aria-labelledby="lectureModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
@@ -689,9 +689,7 @@
 	</div>
 	<div class="header_right">
 		<ul>
-			<li>
-				<a href="create_new_course.html" class="upload_btn" title="Create New Course">Create New Course</a>
-			</li>
+			@include('partial.course-category-button')
 			<li>
 				<a href="shopping_cart.html" class="option_links" title="cart"><i class='uil uil-shopping-cart-alt'></i><span class="noti_count">2</span></a>
 			</li>

@@ -16,7 +16,7 @@
                     <span>{{ Auth::user()->email }}</span>
                 </div>							
             </div>
-            <a href="my_instructor_profile_view.html" class="dp_link_12">View Instructor Profile</a>						
+           						
         </div>
         <div class="night_mode_switch__btn">
             <a href="#" id="night-mode" class="btn-night-mode">
@@ -26,11 +26,9 @@
                 </span>
             </a>
         </div>
-        <a href="instructor_dashboard.html" class="item channel_item">Cursus dashboard</a>						
-        <a href="membership.html" class="item channel_item">Paid Memberships</a>
-        <a href="setting.html" class="item channel_item">Setting</a>
-        <a href="help.html" class="item channel_item">Help</a>
-        <a href="feedback.html" class="item channel_item">Send Feedback</a>
+        <a href="/sma_dashboard" class="item channel_item"> Social Media Ambassadors</a>						
+        <a href="/affiliate_dashboard" class="item channel_item">Affiliates/Promoters</a>
+        <a href="" class="item channel_item">Setting</a>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
             

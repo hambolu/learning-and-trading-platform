@@ -55,37 +55,37 @@
                 <div class="container">
                     <h1>All Users</h1>
                 
-                    <table class="table select2">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Wallet Balance</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->wallet->balance ?? 'N/A' }}</td>
-                                <td>
-                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-primary btn-sm">View</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-primary btn-sm">Suspend</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    {{ $users->links() }}
+                    <div class="table-cerificate">
+                        <div class="table-responsive">
+                            <table class="table " id="content-table">
+                                        <thead >
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Wallet Balance</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($users as $user)
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>NGN {{ number_format($user->wallet->balance) ?? 'N/A' }}</td>
+                                        <td>
+                                            <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                            <a href="" class="btn btn-primary btn-sm">View</a>
+                                            <a href="" class="btn btn-primary btn-sm">Suspend</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $users->links() }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

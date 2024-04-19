@@ -50,19 +50,6 @@ class RegisteredUserController extends Controller
             'balance' => 0,
         ]);
 
-        $dashboardSelections = [
-            'dashboard' => true,
-            'sma_dashboard' => true,
-            'affiliate_dashboard' => true,
-        ];
-    
-        // Loop through each dashboard selection and create a record
-        foreach ($dashboardSelections as $dashboardType => $selected) {
-            DashboardSelection::create([
-                'user_id' => $user->id,
-                $dashboardType => $selected,
-            ]);
-        }
 
         event(new Registered($user));
 

@@ -44,8 +44,7 @@
     <script src="{{ asset('vendor/semantic/semantic.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/night-mode.js') }}"></script>
-    <script src="js/night-mode.js"></script>
-	<script src="js/jquery-steps.min.js"></script>
+	<script src="{{ asset('js/jquery-steps.min.js') }}"></script>
 	<script>
 		ClassicEditor.create( document.querySelector( '#editor1' ) )
 		.then( editor => {

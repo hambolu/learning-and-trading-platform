@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('dashboard_selections', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('dashboard')->nullable();
+            $table->boolean('dashboard')->default(false);
+            $table->boolean('sma_dashboard')->default(false);
+            $table->boolean('affiliate_dashboard')->default(false);
             $table->timestamps();
         });
     }

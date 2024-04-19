@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\DashboardSelection;
 use App\Models\User;
+use App\Models\Wallet;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -36,11 +38,31 @@ class RegisteredUserController extends Controller
             'password' => ['required', Rules\Password::defaults()],
         ]);
 
+        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        Wallet::create([
+            'user_id' => $user->id,
+            'balance' => 0,
+        ]);
+
+        $dashboardSelections = [
+            'dashboard' => true,
+            'sma_dashboard' => true,
+            'affiliate_dashboard' => true,
+        ];
+    
+        // Loop through each dashboard selection and create a record
+        foreach ($dashboardSelections as $dashboardType => $selected) {
+            DashboardSelection::create([
+                'user_id' => $user->id,
+                $dashboardType => $selected,
+            ]);
+        }
 
         event(new Registered($user));
 

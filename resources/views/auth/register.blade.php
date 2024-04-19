@@ -42,7 +42,7 @@
                         <button class="login-btn" type="submit">Create Account</button>
                     </form>
                     <p class="sgntrm145">By signing up, you agree to our <a href="terms_of_use.html">Terms of Use</a> and <a href="terms_of_use.html">Privacy Policy</a>.</p>
-                    <p class="mb-0 mt-30">Already have an account? <a href="/register">Log In</a></p>
+                    <p class="mb-0 mt-30">Already have an account? <a href="/login">Log In</a></p>
                 </div>
                 <div class="sign_footer"><img src="images/sign_logo.png" alt="">© 2024 <strong>Cursus</strong>. All Rights Reserved.</div>
             </div>				

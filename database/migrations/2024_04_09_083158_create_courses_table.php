@@ -14,19 +14,12 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
-            $table->string('section_name')->nullable();
-            $table->string('lecture_title')->nullable();
-            $table->string('video_type')->nullable();
-            $table->string('video_url')->nullable();
-            $table->text('attachment_ids')->nullable();
             $table->decimal('price', 10, 2);
             $table->boolean('is_paid')->default(true);
-            // Add more columns as needed based on the provided documentation
             $table->timestamps();
         });
 
-        // Assuming you have a pivot table for user-course relationships
+        
         Schema::create('user_courses', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
@@ -34,7 +27,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Assuming you have a table for course categories
+        
         Schema::create('course_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -42,14 +35,14 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Assuming you have a pivot table for course-category relationships
+        
         Schema::create('course_category_course', function (Blueprint $table) {
             $table->integer('course_id');
             $table->integer('category_id');
             $table->primary(['course_id', 'category_id']);
         });
 
-        // Add more tables as needed based on the provided documentation
+        
     }
 
     /**

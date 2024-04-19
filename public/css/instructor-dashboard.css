@@ -2266,9 +2266,9 @@ table {
 #add-course-tab .step-steps > li:before {
 	background-color: #ededed;
     height: 8px;
-    left: 50%;
+    left: 55%;
     top: 18px;
-    width: 100%;
+    width: 125%;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }

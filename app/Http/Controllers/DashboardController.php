@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\CourseCategory;
 use App\Models\DashboardSelection;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -45,7 +47,10 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('dashboard');
+        $category = CourseCategory::all();
+        $courses = Course::all();
+        //dd($category);
+        return view('dashboard',compact('category','courses'));
     }
 
     public function sma_dashboard()

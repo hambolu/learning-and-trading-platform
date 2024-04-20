@@ -28,13 +28,13 @@
         </div>
         <a href="/sma_dashboard" class="item channel_item"> Social Media Ambassadors</a>						
         <a href="/affiliate_dashboard" class="item channel_item">Affiliates/Promoters</a>
-        <a href="" class="item channel_item">Setting</a>
+        <a href="/elearning_dashboard" class="item channel_item">E-learning Community</a>
+        <a href="/seller_dashboard" class="item channel_item">Merchants/Sellers</a>
+        <a href="/setting" class="item channel_item">Setting</a>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            
             <a href="{{ route('logout') }}" class="item channel_item" onclick="event.preventDefault();
             this.closest('form').submit();">Sign Out</a>
-
         </form>
     </div>
 </li>

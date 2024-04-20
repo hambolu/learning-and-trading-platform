@@ -65,10 +65,11 @@
                             <h4 class="item_title">Categories</h4>
                             <a href="/categories" class="see150">See all</a>
                             <div class="la5lo1">
-                                <div class="owl-carousel live_stream owl-theme">
-                                    data
-                                    @forelse (\App\Models\CourseCategory::all() as $item)
-                                        <div class="item">
+                                <div class="row">
+                                    @foreach ($category->take(4) as $item)
+                                        <div class="col">
+
+
                                             <div class="stream_1">
                                                 <a href="#" class="stream_bg">
                                                     @if ($item->image)
@@ -82,29 +83,20 @@
                                                 </a>
 
                                             </div>
-                                        </div>
-                                    @empty
-                                        <div class="item">
-                                            <div class="stream_1">
-                                                <a href="#" class="stream_bg">
-                                                    <img src="{{ asset('images/default.webp') }}" alt="">
-                                                    <h4>No Category Found</h4>
 
-                                                </a>
-                                            </div>
                                         </div>
-                                    @endforelse
-
+                                    @endforeach
                                 </div>
+
                             </div>
                         </div>
                         <div class="section3125 mt-50">
                             <h4 class="item_title">Featured Courses</h4>
                             <a href="#" class="see150">See all</a>
                             <div class="la5lo1">
-                                <div class="owl-carousel featured_courses owl-theme">
-                                    @forelse (\App\Models\Course::all() as $item)
-                                        <div class="item">
+                                <div class="row">
+                                    @foreach ($courses as $item)
+                                        <div class="col">
                                             <div class="fcrse_1 mb-20">
                                                 <a href="" class="fcrse_img">
                                                     <img src="{{ $item->thumbnail ?? 'images/courses/img-1.jpg' }}"
@@ -154,13 +146,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @empty
-                                        <div class="card justify-content-center">
-                                            <div class="card-body">
-                                                <p>No Course Found</p>
-                                            </div>
-                                        </div>
-                                    @endforelse
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -175,8 +161,7 @@
                                 </div>
                                 <div class="tutor_content_dt">
                                     <div class="tutor150">
-                                        <a href="#"
-                                            class="tutor_name">{{ Auth::user()->name }}</a>
+                                        <a href="#" class="tutor_name">{{ Auth::user()->name }}</a>
                                         <div class="mef78" title="Verify">
                                             <i class="uil uil-check-circle"></i>
                                         </div>
@@ -217,7 +202,7 @@
 
                         </div>
                     </div>
-                    
+
                 </div>
                 @include('partial.fund-wallet')
             </div>

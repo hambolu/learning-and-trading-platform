@@ -66,6 +66,7 @@
                             <a href="/categories" class="see150">See all</a>
                             <div class="la5lo1">
                                 <div class="owl-carousel live_stream owl-theme">
+                                    data
                                     @forelse (\App\Models\CourseCategory::all() as $item)
                                         <div class="item">
                                             <div class="stream_1">

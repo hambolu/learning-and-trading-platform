@@ -327,13 +327,14 @@
 										<div class="publish-block">
 											<i class="far fa-edit"></i>
 											<p>Your course is in a draft state. Students cannot view, purchase or enroll in this course. For students that are already enrolled, this course will not appear on their student Dashboard.</p>
+											<button type="submit" class="btn btn-default steps_btn">Submit for Review</button>
 										</div>
 									</div>
 								</div>
 								<div class="step-footer step-tab-pager">
 									<button data-direction="prev" class="btn btn-default steps_btn">PREVIOUS</button>
 									<button data-direction="next" class="btn btn-default steps_btn">Next</button>
-									<button type="submit" class="btn btn-default steps_btn">Submit for Review</button>
+									
 								</div>
 							</div>
 						</form>

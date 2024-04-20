@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
     <!-- Header Start -->
     <header class="header clearfix">
         <button type="button" id="toggleMenu" class="toggle_menu">
@@ -55,11 +56,11 @@
                 <div class="section">
                     <form id="lectureForm" method="POST" action="/submit-lecture">
                         @csrf
-                        <div class="card">
-                            <h5 class="card-body" id="lectureModalLabel">Add Lecture</h5>
-                        </div>
+                       
+                        
                         <div class="container">
                             <div class="new-section-block">
+                                <h5 class="card-body" id="lectureModalLabel">Add Lecture</h5>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="new-section mt-30">
@@ -67,10 +68,14 @@
                                                 <label for="lectureTitle" class="label25">Lecture Title*</label>
                                                 <input type="text" class="form-control" id="lectureTitle" name="lectureTitle" placeholder="Title here" required>
                                             </div>
+                                            
+
                                             <div class="form-group mt-30">
                                                 <label for="lectureDescription" class="label25">Description*</label>
-                                                <textarea class="form-control" id="lectureDescription" name="lectureDescription" rows="4" placeholder="Description here" required></textarea>
+                                                <textarea class="form-control" id="lectureDescription" name="lectureDescription" rows="10" placeholder="Description here" required></textarea>
                                             </div>
+                                            
+                                            
                                             <div class="form-check mt-30">
                                                 <input type="checkbox" class="form-check-input" id="previewCheckbox" name="previewCheckbox">
                                                 <label class="form-check-label" for="previewCheckbox">Free Preview</label>
@@ -144,6 +149,17 @@
                         document.getElementById('lectureForm').reset();
                         $('#videoDetails').empty();
                     }
+                </script>
+                <script>
+                    // Replace textarea with ClassicEditor
+                    ClassicEditor
+                        .create(document.querySelector('#lectureDescription'))
+                        .then(editor => {
+                            console.log('Editor was initialized', editor);
+                        })
+                        .catch(error => {
+                            console.error('Error initializing ClassicEditor', error);
+                        });
                 </script>
                 
                 

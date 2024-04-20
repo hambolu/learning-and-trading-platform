@@ -30,8 +30,9 @@ class CourseController extends Controller
             toastr()->success('Category saved successfully!');
             return back();
         } catch (\Exception $e) {
-            toastr()->error('Failed to save category.');
-            return back();
+            dd($e->getMessage());
+            // toastr()->error('Failed to save category.');
+            // return back();
         }
     }
 

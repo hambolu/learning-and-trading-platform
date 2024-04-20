@@ -1,5 +1,5 @@
 // === Dropdown === //
-
+jQuery.noConflict();
 $('.ui.dropdown')
   .dropdown()
 ;

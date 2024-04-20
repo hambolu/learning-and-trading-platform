@@ -296,6 +296,19 @@
 																				</div>
 																			</div>																		
 																		</div>
+																		<div class="license_pricing mt-30 mb-30">
+																			<label class="label25">Affiliate Percentage*</label>
+																			<div class="row">
+																				<div class="col-lg-4 col-md-6 col-sm-6">
+																					<div class="loc_group">
+																						<div class="ui left icon input swdh19">
+																							<input class="prompt srch_explore" type="text" placeholder="$0" name="discount_price" id="">															
+																						</div>
+																						<span class="slry-dt">%</span>
+																					</div>
+																				</div>
+																			</div>																		
+																		</div>
 																	
 																
 															</div>
@@ -320,8 +333,8 @@
 								<div class="step-footer step-tab-pager">
 									<button data-direction="prev" class="btn btn-default steps_btn">PREVIOUS</button>
 									<button data-direction="next" class="btn btn-default steps_btn">Next</button>
+									<button type="submit" class="btn btn-default steps_btn">Submit for Review</button>
 								</div>
-								<button type="submit" class="btn btn-default steps_btn">Submit for Review</button>
 							</div>
 						</form>
 					</div>

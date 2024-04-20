@@ -29,6 +29,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('create-course');
     });
 
+    Route::get('/curricullum', function () {
+        return view('curricullum');
+    });
+
     // Category and Course Creation Handling
     Route::post('/create_category', [CourseController::class, 'createCategory'])->name('create_category');
     Route::post('/create_course', [CourseController::class, 'createCourse'])->name('create_course');

@@ -32,29 +32,38 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         //dd($request->all());
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // Ensure unique email in 'users' table
             'password' => ['required', Rules\Password::defaults()],
         ]);
-
-        
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        Wallet::create([
-            'user_id' => $user->id,
-            'balance' => 0,
-        ]);
-
-
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+    
+        try {
+            // Attempt to create a new user
+            $user = User::create([
+                'name' => $validatedData['name'],
+                'email' => strtolower($validatedData['email']),
+                'password' => Hash::make($validatedData['password']),
+            ]);
+    
+            // Create a wallet for the user
+            Wallet::create([
+                'user_id' => $user->id,
+                'balance' => 0,
+            ]);
+    
+            // Trigger the Registered event
+            event(new Registered($user));
+    
+            // Log in the newly registered user
+            Auth::login($user);
+    
+            toastr()->success('Registration successfully!');
+            return redirect()->route('dashboard');
+    
+        } catch (\Exception $e) {
+            toastr()->error($e->getMessage());
+            return redirect()->route('register');
+        }
     }
 }

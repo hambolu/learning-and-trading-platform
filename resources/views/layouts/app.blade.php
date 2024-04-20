@@ -17,11 +17,10 @@
     <link href="{{ asset('vendor/unicons-2.0.1/css/unicons.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vertical-responsive-menu.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="css/instructor-dashboard.css" rel="stylesheet">
-		<link href="css/instructor-responsive.css" rel="stylesheet">
+    <link href="{{ asset('css/instructor-dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('css/night-mode.css') }}" rel="stylesheet">
-    <link href="css/jquery-steps.css" rel="stylesheet">
+    <link href="{{ asset('css/jquery-steps.css') }}" rel="stylesheet">
 
     <!-- Vendor Stylesheets -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -30,7 +29,7 @@
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/semantic/semantic.min.css') }}" rel="stylesheet">
-    <link href="vendor/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+    <link href="{{ asset('vendor/jquery-ui-1.12.1/jquery-ui.css') }}" rel="stylesheet">
 
 
 </head>
@@ -42,9 +41,21 @@
     <script src="{{ asset('vendor/OwlCarousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap-select/docs/docs/dist/js/bootstrap-select.js') }}"></script>
     <script src="{{ asset('vendor/semantic/semantic.min.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
+    {{-- <script src="{{ asset('js/custom.js') }}"></script> --}}
     <script src="{{ asset('js/night-mode.js') }}"></script>
 	<script src="{{ asset('js/jquery-steps.min.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			// Hide all submenus initially
+			$('.sub_menu').hide();
+	
+			// Add click event handler to menu links
+			$('.menu--link').click(function() {
+				// Toggle visibility of the submenu associated with this menu item
+				$(this).siblings('.sub_menu').toggle();
+			});
+		});
+	</script>
 	<script>
 		ClassicEditor.create( document.querySelector( '#editor1' ) )
 		.then( editor => {

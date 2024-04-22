@@ -11,12 +11,12 @@ class SMAController extends Controller
 {
     public function sharePost(Request $request, Post $post)
     {
-        $sma = SMA::findOrFail(auth()->user()->id);
-        $sma->share($post); // Assuming share logic is implemented in the CanShare trait
+        $sma = SMA::where('user_id',auth()->user()->id)->first();
+        $sma->shareContent($post); // Assuming share logic is implemented in the CanShare trait
 
         $sharingId = uniqid(); // Generate unique sharing ID
         PostShareCount::create([
-            'sma_id' => $sma->id,
+            'user_id' => $sma->id,
             'post_id' => $post->id,
             'sharing_id' => $sharingId,
         ]);

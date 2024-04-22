@@ -3,9 +3,11 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MarketplaceController;
+use App\Http\Controllers\MerchantController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -39,6 +41,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/setting', function () {
         return view('setting');
     });
+
+    Route::get('/merchant/dashboard', [MerchantController::class, 'dashboard'])->name('merchant.dashboard');
+    Route::get('/merchant/products/create', [MerchantController::class, 'createProductForm'])->name('merchant.products.create');
+    Route::post('/merchant/products/store', [MerchantController::class, 'storeProduct'])->name('merchant.products.store');
+    Route::get('/merchant/subscription-plans', [MerchantController::class, 'showSubscriptionPlans'])->name('merchant.subscription_plans');
 
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');

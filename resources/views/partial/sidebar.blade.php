@@ -44,11 +44,24 @@
                     </ul>
                 </li>
                 <li class="menu--item">
+                    <a href="/post/index" class="menu--link" title="Help">
+                        <i class='uil uil-question-circle menu--icon'></i>
+                        <span class="menu--label">Posts</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="/marketplace" class="menu--link" title="Help">
+                        <i class='uil uil-cart menu--icon'></i>
+                        <span class="menu--label">Market Place</span>
+                    </a>
+                </li>
+                <li class="menu--item">
                     <a href="/setting" class="menu--link" title="Setting">
                         <i class='uil uil-cog menu--icon'></i>
                         <span class="menu--label">Setting</span>
                     </a>
                 </li>
+                
                 {{-- <li class="menu--item">
                     <a href="help.html" class="menu--link" title="Help">
                         <i class='uil uil-question-circle menu--icon'></i>

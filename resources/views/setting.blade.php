@@ -88,156 +88,184 @@
                             <div class="tab-pane fade show active" id="pills-account" role="tabpanel"
                                 aria-labelledby="pills-account-tab">
                                 <div class="account_setting">
-                                    <h4>Your Cursus Account</h4>
-                                    <p>This is your public presence on Cursus. You need a account to upload your paid
-                                        courses, comment on courses, purchased by students, or earning.</p>
-                                    <div class="basic_profile">
-                                        <div class="basic_ptitle">
-                                            <h4>Basic Profile</h4>
-                                            <p>Add information about yourself</p>
-                                        </div>
-                                        <div class="basic_form">
-                                            <div class="row">
-                                                <div class="col-lg-8">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui left icon input swdh11 swdh19">
-                                                                    <input class="prompt srch_explore" type="text"
-                                                                        name="name" value="Joginder" id="id[name]"
-                                                                        required="" maxlength="64"
-                                                                        placeholder="First Name">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui left icon input swdh11 swdh19">
-                                                                    <input class="prompt srch_explore" type="text"
-                                                                        name="surname" value="Singh" id="id[surname]"
-                                                                        required="" maxlength="64"
-                                                                        placeholder="Last Name">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui left icon input swdh11 swdh19">
-                                                                    <input class="prompt srch_explore" type="text"
-                                                                        name="headline" value="I  am a Web Designer"
-                                                                        id="id_headline" required="" maxlength="60"
-                                                                        placeholder="Headline">
-                                                                    <div class="form-control-counter"
-                                                                        data-purpose="form-control-counter">36</div>
-                                                                </div>
-                                                                <div class="help-block">Add a professional headline like,
-                                                                    "Engineer at Cursus" or "Architect."</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui form swdh30">
-                                                                    <div class="field">
-                                                                        <textarea rows="3" name="description" id="id_about" placeholder="Write a little description about you..."></textarea>
+                                    <form action="{{ route('profile.update') }}" method="post">
+                                        <div class="basic_profile">
+                                            <div class="basic_ptitle">
+                                                <h4>Basic Profile</h4>
+                                                <p>Update information about yourself</p>
+                                            </div>
+                                            <div class="basic_form">
+                                                <div class="row">
+                                                    <div class="col-lg-8">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="ui search focus mt-30">
+                                                                    <div class="ui left icon input swdh11 swdh19">
+                                                                        <input class="prompt srch_explore" type="text"
+                                                                            name="name" value="{{ Auth::user()->name }}"
+                                                                            id="" required="" maxlength="64"
+                                                                            placeholder="{{ Auth::user()->name }}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="help-block">Links and coupon codes are not
-                                                                    permitted in this section.</div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="divider-1"></div>
+                                                            
+                                                            <div class="col-lg-12">
+                                                                <div class="ui search focus mt-30">
+                                                                    <div class="ui left icon input swdh11 swdh19">
+                                                                        <input class="prompt srch_explore" type="text"
+                                                                            name="professional_headline" value="{{ Auth::user()->professional_headline }}"
+                                                                            id="id_headline" required=""
+                                                                            maxlength="60" placeholder="Headline">
+                                                                        
+                                                                    </div>
+                                                                    <div class="help-block">Add a professional headline
+                                                                        like,
+                                                                        "Engineer at Cursus" or "Architect.(max words 60)"</div>
+                                                                </div>
+                                                            </div>
+                                                           
+                                                            <div class="col-lg-12">
+                                                                <div class="divider-1"></div>
+                                                            </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
+
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="basic_profile1">
-                                        <div class="basic_ptitle">
-                                            <h4>Profile Links</h4>
-                                        </div>
-                                        <div class="basic_form">
-                                            <div class="row">
-                                                <div class="col-lg-8">
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui left icon labeled input swdh11 swdh31">
-                                                                    <div class="ui label lb12">
-                                                                        https://
+                                        <div class="basic_profile1">
+                                            <div class="basic_ptitle">
+                                                <h4>Profile Links</h4>
+                                            </div>
+                                            <div class="basic_form">
+                                                <div class="row">
+                                                    <div class="col-lg-8">
+                                                        <div class="row">
+                                                            
+                                                            <div class="col-lg-12">
+                                                                <div class="ui search focus mt-30">
+                                                                    <div class="ui left icon labeled input swdh11 swdh31">
+                                                                        <div class="ui label lb12">
+                                                                            http://facebook.com/
+                                                                        </div>
+                                                                        <input class="prompt srch_explore" type="text"
+                                                                            name="facebooklink" id="id_facebook"
+                                                                            required="" maxlength="64" value="{{ Auth::user()->facebooklink }}"
+                                                                            placeholder="Facebook Profile">
                                                                     </div>
-                                                                    <input class="prompt srch_explore" type="text"
-                                                                        name="site" value="gambolthemes.net"
-                                                                        id="id_site" required="" maxlength="64"
-                                                                        placeholder="yoursite.com">
+                                                                    <div class="help-block">Add your Facebook username
+                                                                        (e.g.
+                                                                        johndoe).</div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui left icon labeled input swdh11 swdh31">
-                                                                    <div class="ui label lb12">
-                                                                        http://facebook.com/
+                                                            <div class="col-lg-12">
+                                                                <div class="ui search focus mt-30">
+                                                                    <div class="ui left icon labeled input swdh11 swdh31">
+                                                                        <div class="ui label lb12">
+                                                                            http://twitter.com/
+                                                                        </div>
+                                                                        <input class="prompt srch_explore" type="text"
+                                                                            name="twitterlink" id="id_twitter"
+                                                                            required="" maxlength="64" value="{{ Auth::user()->twitterlink }}"
+                                                                            placeholder="Twitter Profile">
                                                                     </div>
-                                                                    <input class="prompt srch_explore" type="text"
-                                                                        name="facebooklink" id="id_facebook"
-                                                                        required="" maxlength="64"
-                                                                        placeholder="Facebook Profile">
+                                                                    <div class="help-block">Add your Twitter username (e.g.
+                                                                        johndoe).</div>
                                                                 </div>
-                                                                <div class="help-block">Add your Facebook username (e.g.
-                                                                    johndoe).</div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui left icon labeled input swdh11 swdh31">
-                                                                    <div class="ui label lb12">
-                                                                        http://twitter.com/
+                                                            <div class="col-lg-12">
+                                                                <div class="ui search focus mt-30">
+                                                                    <div class="ui left icon labeled input swdh11 swdh31">
+                                                                        <div class="ui label lb12">
+                                                                            http://www.linkedin.com/
+                                                                        </div>
+                                                                        <input class="prompt srch_explore" type="text"
+                                                                            name="linkedinlink" id="id_linkedin"
+                                                                            required="" maxlength="64" value="{{ Auth::user()->linkedinlink }}"
+                                                                            placeholder="Linkedin Profile">
                                                                     </div>
-                                                                    <input class="prompt srch_explore" type="text"
-                                                                        name="twitterlink" id="id_twitter" required=""
-                                                                        maxlength="64" placeholder="Twitter Profile">
+                                                                    <div class="help-block">Input your LinkedIn resource id
+                                                                        (e.g. in/johndoe).</div>
                                                                 </div>
-                                                                <div class="help-block">Add your Twitter username (e.g.
-                                                                    johndoe).</div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui left icon labeled input swdh11 swdh31">
-                                                                    <div class="ui label lb12">
-                                                                        http://www.linkedin.com/
+                                                            <div class="col-lg-12">
+                                                                <div class="ui search focus mt-30">
+                                                                    <div class="ui left icon labeled input swdh11 swdh31">
+                                                                        <div class="ui label lb12">
+                                                                            http://www.youtube.com/
+                                                                        </div>
+                                                                        <input class="prompt srch_explore" type="text"
+                                                                            name="youtubelink" id="id_youtube"
+                                                                            required="" maxlength="64" value="{{ Auth::user()->youtubelink }}"
+                                                                            placeholder="Youtube Profile">
                                                                     </div>
-                                                                    <input class="prompt srch_explore" type="text"
-                                                                        name="linkedinlink" id="id_linkedin"
-                                                                        required="" maxlength="64"
-                                                                        placeholder="Linkedin Profile">
+                                                                    <div class="help-block">Input your Youtube username
+                                                                        (e.g.
+                                                                        johndoe).</div>
                                                                 </div>
-                                                                <div class="help-block">Input your LinkedIn resource id
-                                                                    (e.g. in/johndoe).</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <div class="ui search focus mt-30">
-                                                                <div class="ui left icon labeled input swdh11 swdh31">
-                                                                    <div class="ui label lb12">
-                                                                        http://www.youtube.com/
-                                                                    </div>
-                                                                    <input class="prompt srch_explore" type="text"
-                                                                        name="youtubelink" id="id_youtube" required=""
-                                                                        maxlength="64" placeholder="Youtube Profile">
-                                                                </div>
-                                                                <div class="help-block">Input your Youtube username (e.g.
-                                                                    johndoe).</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
+                                        <button class="save_btn" type="submit">Save Changes</button>
+                                    </form>
+                                </div>
+                                <div class="row mt-8">
+                                    <div class="col-lg-8">
+                                        <div class="basic_ptitle mb-2">
+                                            <h4>Update Password</h4>
+                                        </div>
+                                        <form method="post" action="{{ route('password.update') }}"
+                                            class="mt-6 space-y-6">
+                                            @csrf
+                                            @method('put')
+
+                                            <div class="mb-3">
+                                                <label for="update_password_current_password"
+                                                    class="form-label">{{ __('Current Password') }}</label>
+                                                <input id="update_password_current_password" name="current_password"
+                                                    type="password" class="form-control"
+                                                    autocomplete="current-password" />
+                                                @error('current_password')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="update_password_password"
+                                                    class="form-label">{{ __('New Password') }}</label>
+                                                <input id="update_password_password" name="password" type="password"
+                                                    class="form-control" autocomplete="new-password" />
+                                                @error('password')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="update_password_password_confirmation"
+                                                    class="form-label">{{ __('Confirm Password') }}</label>
+                                                <input id="update_password_password_confirmation"
+                                                    name="password_confirmation" type="password" class="form-control"
+                                                    autocomplete="new-password" />
+                                                @error('password_confirmation')
+                                                    <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+
+                                            <button type="submit" class="save_btn">{{ __('Update Password') }}</button>
+                                            <div class="d-grid gap-2">
+                                            </div>
+
+                                            @if (session('status') === 'password-updated')
+                                                <p class="text-success">{{ __('Saved.') }}</p>
+                                            @endif
+                                        </form>
+
                                     </div>
-                                    <button class="save_btn" type="submit">Save Changes</button>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="pills-notification" role="tabpanel"
@@ -1599,203 +1627,7 @@
                 </div>
             </div>
         </div>
-        <footer class="footer mt-30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="item_f1">
-                            <a href="about_us.html">About</a>
-                            <a href="our_blog.html">Blog</a>
-                            <a href="career.html">Careers</a>
-                            <a href="press.html">Press</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="item_f1">
-                            <a href="help.html">Help</a>
-                            <a href="coming_soon.html">Advertise</a>
-                            <a href="coming_soon.html">Developers</a>
-                            <a href="contact_us.html">Contact Us</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="item_f1">
-                            <a href="terms_of_use.html">Copyright Policy</a>
-                            <a href="terms_of_use.html">Terms</a>
-                            <a href="terms_of_use.html">Privacy Policy</a>
-                            <a href="sitemap.html">Sitemap</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <div class="item_f3">
-                            <a href="#" class="btn1542">Teach on Cursus</a>
-                            <div class="lng_btn">
-                                <div class="ui language bottom right pointing dropdown floating" id="languages"
-                                    data-content="Select Language">
-                                    <a href="#"><i class='uil uil-globe lft'></i>Language<i
-                                            class='uil uil-angle-down rgt'></i></a>
-                                    <div class="menu">
-                                        <div class="scrolling menu">
-                                            <div class="item" data-percent="100" data-value="en"
-                                                data-english="English">
-                                                <span class="description">English</span>
-                                                English
-                                            </div>
-                                            <div class="item" data-percent="94" data-value="da"
-                                                data-english="Danish">
-                                                <span class="description">dansk</span>
-                                                Danish
-                                            </div>
-                                            <div class="item" data-percent="94" data-value="es"
-                                                data-english="Spanish">
-                                                <span class="description">Español</span>
-                                                Spanish
-                                            </div>
-                                            <div class="item" data-percent="34" data-value="zh"
-                                                data-english="Chinese">
-                                                <span class="description">简体中文</span>
-                                                Chinese
-                                            </div>
-                                            <div class="item" data-percent="54" data-value="zh_TW"
-                                                data-english="Chinese (Taiwan)">
-                                                <span class="description">中文 (臺灣)</span>
-                                                Chinese (Taiwan)
-                                            </div>
-                                            <div class="item" data-percent="79" data-value="fa"
-                                                data-english="Persian">
-                                                <span class="description">پارسی</span>
-                                                Persian
-                                            </div>
-                                            <div class="item" data-percent="41" data-value="fr"
-                                                data-english="French">
-                                                <span class="description">Français</span>
-                                                French
-                                            </div>
-                                            <div class="item" data-percent="37" data-value="el"
-                                                data-english="Greek">
-                                                <span class="description">ελληνικά</span>
-                                                Greek
-                                            </div>
-                                            <div class="item" data-percent="37" data-value="ru"
-                                                data-english="Russian">
-                                                <span class="description">Русский</span>
-                                                Russian
-                                            </div>
-                                            <div class="item" data-percent="36" data-value="de"
-                                                data-english="German">
-                                                <span class="description">Deutsch</span>
-                                                German
-                                            </div>
-                                            <div class="item" data-percent="23" data-value="it"
-                                                data-english="Italian">
-                                                <span class="description">Italiano</span>
-                                                Italian
-                                            </div>
-                                            <div class="item" data-percent="21" data-value="nl"
-                                                data-english="Dutch">
-                                                <span class="description">Nederlands</span>
-                                                Dutch
-                                            </div>
-                                            <div class="item" data-percent="19" data-value="pt_BR"
-                                                data-english="Portuguese">
-                                                <span class="description">Português(BR)</span>
-                                                Portuguese
-                                            </div>
-                                            <div class="item" data-percent="17" data-value="id"
-                                                data-english="Indonesian">
-                                                <span class="description">Indonesian</span>
-                                                Indonesian
-                                            </div>
-                                            <div class="item" data-percent="12" data-value="lt"
-                                                data-english="Lithuanian">
-                                                <span class="description">Lietuvių</span>
-                                                Lithuanian
-                                            </div>
-                                            <div class="item" data-percent="11" data-value="tr"
-                                                data-english="Turkish">
-                                                <span class="description">Türkçe</span>
-                                                Turkish
-                                            </div>
-                                            <div class="item" data-percent="10" data-value="kr"
-                                                data-english="Korean">
-                                                <span class="description">한국어</span>
-                                                Korean
-                                            </div>
-                                            <div class="item" data-percent="7" data-value="ar"
-                                                data-english="Arabic">
-                                                <span class="description">العربية</span>
-                                                Arabic
-                                            </div>
-                                            <div class="item" data-percent="6" data-value="hu"
-                                                data-english="Hungarian">
-                                                <span class="description">Magyar</span>
-                                                Hungarian
-                                            </div>
-                                            <div class="item" data-percent="6" data-value="vi"
-                                                data-english="Vietnamese">
-                                                <span class="description">tiếng Việt</span>
-                                                Vietnamese
-                                            </div>
-                                            <div class="item" data-percent="5" data-value="sv"
-                                                data-english="Swedish">
-                                                <span class="description">svenska</span>
-                                                Swedish
-                                            </div>
-                                            <div class="item" data-precent="4" data-value="pl"
-                                                data-english="Polish">
-                                                <span class="description">polski</span>
-                                                Polish
-                                            </div>
-                                            <div class="item" data-percent="6" data-value="ja"
-                                                data-english="Japanese">
-                                                <span class="description">日本語</span>
-                                                Japanese
-                                            </div>
-                                            <div class="item" data-percent="0" data-value="ro"
-                                                data-english="Romanian">
-                                                <span class="description">românește</span>
-                                                Romanian
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="footer_bottm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="fotb_left">
-                                        <li>
-                                            <a href="index.html">
-                                                <div class="footer_logo">
-                                                    <img src="images/logo1.svg" alt="">
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <p>© 2024 <strong>Cursus</strong>. All Rights Reserved.</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="edu_social_links">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                        <a href="#"><i class="fab fa-youtube"></i></a>
-                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+
     </div>
     <!-- Body End -->
 @endsection

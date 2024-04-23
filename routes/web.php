@@ -21,6 +21,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/affiliate_dashboard', [DashboardController::class, 'affiliate_dashboard'])->name('affiliate_dashboard');
     Route::get('/sma_dashboard', [DashboardController::class, 'sma_dashboard'])->name('sma_dashboard');
+    Route::get('/elearning_dashboard', [DashboardController::class, 'elearning_dashboard'])->name('elearning_dashboard');
+    Route::get('/seller_dashboard', [DashboardController::class, 'seller_dashboard'])->name('seller_dashboard');
 
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,16 +30,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // User Management
-    Route::get('/users', [DashboardController::class, 'userManagement'])->name('users.index');
+    Route::get('/elearning-users', [DashboardController::class, 'userManagement'])->name('users.index');
+    Route::get('/sma-users', [DashboardController::class, 'userManagement'])->name('users.index');
+    Route::get('/affiliate-users', [DashboardController::class, 'userManagement'])->name('users.index');
+    Route::get('/sellers', [DashboardController::class, 'userManagement'])->name('users.index');
 
     // Course Creation Routes
     Route::get('/create-course', function () {
         return view('create-course');
     });
 
+    Route::get('/membership', function () {
+        return view('membership');
+    });
     Route::get('/curricullum', function () {
         return view('curricullum');
     });
+
     Route::get('/setting', function () {
         return view('setting');
     });

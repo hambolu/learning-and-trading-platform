@@ -11,5 +11,9 @@ class SMA extends Model
     use HasFactory;
     use CanShareContent;
 
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }

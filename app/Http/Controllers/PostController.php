@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    use ImageUploadTrait;
     public function index()
     {
         // Fetch all posts from the database
         $posts = Post::latest()->get();
 
-        return view('posts.index', ['posts' => $posts]);
+        return view('posts.index', compact('posts'));
     }
 
     public function create()
@@ -32,14 +36,24 @@ class PostController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
+        $title = $request->input('title');
+        $slug = Str::slug($title);
+        
         // Create a new post
         $post = new Post();
         $post->title = $request->input('title');
+        $post->slug = $slug;
         $post->content = $request->input('content');
+        // Handle image upload
+        $imagePath = $this->uploadImage($request, 'image', 'post_images');
+
+        if ($imagePath) {
+            $post->image = $imagePath;
+        }
         $post->save();
 
-        return redirect()->route('posts.index')->with('success', 'Post created successfully');
+        toastr()->success('Post created successfully');
+        return back();
     }
 
     public function show($id)

@@ -51,31 +51,9 @@
     @include('partial.sidebar')
 
 	<!-- Body Start -->
-	<div class="wrapper _bg4586 _new89">		
-		<div class="_215b15">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">						
-						<div class="title125">						
-							<div class="titleleft">					
-								<div class="ttl121">
-									<nav aria-label="breadcrumb">
-										<ol class="breadcrumb">
-											<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-											<li class="breadcrumb-item active" aria-current="page">Paid Membership</li>
-										</ol>
-									</nav>
-								</div>
-							</div>
-						</div>
-						<div class="title126">	
-							<h2>Paid Membership</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="memb4d25">
+	<div class="wrapper">		
+		<div class="sa4d25">
+			
 			<div class="container">			
 				<div class="row">
 					<div class="col-md-6">						

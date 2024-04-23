@@ -53,7 +53,18 @@
         <div class="sa4d25">
             <div class="container-fluid">
                 <div class="container">
-                    <h1>All Users</h1>
+                    <h1>
+                        @php
+                            $currentRouteName = Route::currentRouteName();
+
+                            // Remove special characters and convert to title case
+                            $cleanedRouteName = ucwords(preg_replace('/[^a-zA-Z0-9]+/', ' ', $currentRouteName));
+
+                            echo $cleanedRouteName;
+                        @endphp
+
+
+                        Users</h1>
 
                     <div class="table-cerificate">
                         <div class="table-responsive">
@@ -126,9 +137,9 @@
                                         @endforeach
                                     @endif
                                 </tbody>
-                                
+
                             </table>
-                            
+
                         </div>
                     </div>
                 </div>

@@ -24,31 +24,31 @@ class DashboardController extends Controller
         $category = CourseCategory::all();
         $courses = Course::all();
         //dd($category);
-        return view('dashboard',compact('category','courses'));
+        return view('dashboard', compact('category', 'courses'));
     }
 
     public function sma_dashboard()
     {
-        $check = SMA::where('user_id',Auth::id())     
-        ->first();
+        $check = SMA::where('user_id', Auth::id())
+            ->first();
         if (!$check) {
-           $add_user = new SMA();
-           $add_user->user_id = Auth::id();
-           $add_user->save();
+            $add_user = new SMA();
+            $add_user->user_id = Auth::id();
+            $add_user->save();
         }
         $posts = Post::latest()->get();
-        return view('sma_dashboard',compact('posts'));
+        return view('sma_dashboard', compact('posts'));
     }
 
     public function affiliate_dashboard()
     {
-        $check = AffiliateUser::where('user_id',Auth::id())     
-        ->first();
+        $check = AffiliateUser::where('user_id', Auth::id())
+            ->first();
         if (!$check) {
-           $add_user = new AffiliateUser();
-           $add_user->user_id = Auth::id();
-           $add_user->save();
-          return view('membership');
+            $add_user = new AffiliateUser();
+            $add_user->user_id = Auth::id();
+            $add_user->save();
+            return view('membership');
         }
 
         return view('affiliate_dashboard');
@@ -56,41 +56,56 @@ class DashboardController extends Controller
 
     public function elearning_dashboard()
     {
-        $check = Elearning::where('user_id',Auth::id())     
-        ->first();
+        $check = Elearning::where('user_id', Auth::id())
+            ->first();
         if (!$check) {
-           $add_user = new Elearning();
-           $add_user->user_id = Auth::id();
-           $add_user->save();
-           return view('membership');
+            $add_user = new Elearning();
+            $add_user->user_id = Auth::id();
+            $add_user->save();
+            return view('membership');
         }
-        
+
         $category = CourseCategory::all();
         $courses = Course::all();
-        return view('elearning_dashboard',compact('category','courses'));
+        return view('elearning_dashboard', compact('category', 'courses'));
     }
 
     public function seller_dashboard()
     {
-        $check = Merchant::where('user_id',Auth::id())     
-        ->first();
+        $check = Merchant::where('user_id', Auth::id())
+            ->first();
         if (!$check) {
-           $add_user = new Merchant();
-           $add_user->user_id = Auth::id();
-           $add_user->save();
-           return view('membership');
+            $add_user = new Merchant();
+            $add_user->user_id = Auth::id();
+            $add_user->save();
+            return view('membership');
         }
-        
+
         return view('seller_dashboard');
     }
 
-    public function userManagement()
+    public function elearningUsers()
     {
-        $affiliate_users = AffiliateUser::with(['users','users.wallet'])->paginate(10);
-        $sma_users = SMA::with(['users','users.wallet'])->paginate(10);
-        $elearning_users = Elearning::with(['users','users.wallet'])->paginate(10);
-        $merchant_users = Merchant::with(['users','users.wallet'])->paginate(10);
+        $elearning_users = Elearning::with(['user', 'user.wallet'])->paginate(10);
+        return view('users.user-management', compact('elearning_users'));
+    }
 
-        return view('users.user-managment', compact('users'));
+    public function smaUsers()
+    {
+        $sma_users = SMA::with(['user', 'user.wallet'])->paginate(10);
+        return view('users.user-management', compact('sma_users'));
+    }
+
+    public function affiliateUsers()
+    {
+        $affiliate_users = AffiliateUser::with(['user', 'user.wallet'])->paginate(10);
+     
+        return view('users.user-management', compact('affiliate_users'));
+    }
+
+    public function sellerUsers()
+    {
+        $merchant_users = Merchant::with(['user', 'user.wallet'])->paginate(10);
+        return view('users.user-management', compact('merchant_users'));
     }
 }

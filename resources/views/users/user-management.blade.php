@@ -68,13 +68,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (Route::currentRouteName() == 'elearning-users')
-                                        @foreach ($users as $user)
+                                    @if (Route::currentRouteName() == 'elearning-users.index')
+                                        @foreach ($elearning_users as $user)
                                             <tr>
                                                 <td>{{ $user->id }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>NGN {{ number_format($user->wallet->balance) ?? 'N/A' }}</td>
+                                                <td>{{ $user->user->name }}</td>
+                                                <td>{{ $user->user->email }}</td>
+                                                <td>NGN {{ number_format($user->user->wallet->balance) ?? 'N/A' }}</td>
                                                 <td>
                                                     <a href="" class="btn btn-primary btn-sm">Edit</a>
                                                     <a href="" class="btn btn-primary btn-sm">View</a>
@@ -82,14 +82,13 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-                                    @endif
-                                    @if (Route::currentRouteName() == 'sma-users')
-                                        @foreach ($users as $user)
+                                    @elseif (Route::currentRouteName() == 'sma-users.index')
+                                        @foreach ($sma_users as $user)
                                             <tr>
                                                 <td>{{ $user->id }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>NGN {{ number_format($user->wallet->balance) ?? 'N/A' }}</td>
+                                                <td>{{ $user->user->name }}</td>
+                                                <td>{{ $user->user->email }}</td>
+                                                <td>NGN {{ number_format($user->user->wallet->balance) ?? 'N/A' }}</td>
                                                 <td>
                                                     <a href="" class="btn btn-primary btn-sm">Edit</a>
                                                     <a href="" class="btn btn-primary btn-sm">View</a>
@@ -97,14 +96,13 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-                                    @endif
-                                    @if (Route::currentRouteName() == 'affiliate-users')
-                                        @foreach ($users as $user)
+                                    @elseif (Route::currentRouteName() == 'affiliate-users.index')
+                                        @foreach ($affiliate_users as $user)
                                             <tr>
                                                 <td>{{ $user->id }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>NGN {{ number_format($user->wallet->balance) ?? 'N/A' }}</td>
+                                                <td>{{ $user->user->name }}</td>
+                                                <td>{{ $user->user->email }}</td>
+                                                <td>NGN {{ number_format($user->user->wallet->balance) ?? 'N/A' }}</td>
                                                 <td>
                                                     <a href="" class="btn btn-primary btn-sm">Edit</a>
                                                     <a href="" class="btn btn-primary btn-sm">View</a>
@@ -112,14 +110,13 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-                                    @endif
-                                    @if (Route::currentRouteName() == 'sellers')
-                                        @foreach ($users as $user)
+                                    @elseif (Route::currentRouteName() == 'sellers.index')
+                                        @foreach ($merchant_users as $user)
                                             <tr>
                                                 <td>{{ $user->id }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>NGN {{ number_format($user->wallet->balance) ?? 'N/A' }}</td>
+                                                <td>{{ $user->user->name }}</td>
+                                                <td>{{ $user->user->email }}</td>
+                                                <td>NGN {{ number_format($user->user->wallet->balance) ?? 'N/A' }}</td>
                                                 <td>
                                                     <a href="" class="btn btn-primary btn-sm">Edit</a>
                                                     <a href="" class="btn btn-primary btn-sm">View</a>
@@ -129,8 +126,9 @@
                                         @endforeach
                                     @endif
                                 </tbody>
+                                
                             </table>
-                            {{ $users->links() }}
+                            
                         </div>
                     </div>
                 </div>

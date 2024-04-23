@@ -30,10 +30,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // User Management
-    Route::get('/elearning-users', [DashboardController::class, 'userManagement'])->name('users.index');
-    Route::get('/sma-users', [DashboardController::class, 'userManagement'])->name('users.index');
-    Route::get('/affiliate-users', [DashboardController::class, 'userManagement'])->name('users.index');
-    Route::get('/sellers', [DashboardController::class, 'userManagement'])->name('users.index');
+    Route::get('/elearning-users', [DashboardController::class, 'elearningUsers'])->name('elearning-users.index');
+    Route::get('/sma-users', [DashboardController::class, 'smaUsers'])->name('sma-users.index');
+    Route::get('/affiliate-users', [DashboardController::class, 'affiliateUsers'])->name('affiliate-users.index');
+    Route::get('/sellers', [DashboardController::class, 'sellerUsers'])->name('sellers.index');
+
 
     // Course Creation Routes
     Route::get('/create-course', function () {

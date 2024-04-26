@@ -8,6 +8,18 @@
                         <span class="menu--label">Main Dashboard</span>
                     </a>
                 </li>
+                <li class="menu--item">
+                    <a href="/dashboard" class="menu--link " title="Main Dashboard">
+                        <i class='uil uil-wallet-alt menu--icon'></i>
+                        <span class="menu--label">Wallet</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="/dashboard" class="menu--link" title="Main Dashboard">
+                        <i class='uil uil-home-alt menu--icon'></i>
+                        <span class="menu--label">Payout</span>
+                    </a>
+                </li>
                 @if (Route::currentRouteName() == 'sma_dashboard')
                     <li class="menu--item">
                         <a href="/posts" class="menu--link" title="Help">

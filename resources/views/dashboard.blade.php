@@ -93,6 +93,7 @@
                         <div class="section3125 mt-50">
                             <h4 class="item_title">Featured Courses</h4>
                             <a href="#" class="see150">See all</a>
+                            @include('partial.share')
                             <div class="la5lo1">
                                 <div class="row">
                                     @foreach ($courses as $item)
@@ -114,13 +115,17 @@
                                                 </a>
                                                 <div class="fcrse_content">
                                                     <div class="eps_dots more_dropdown">
-                                                        <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                                                        <div class="dropdown-content">
-                                                            <span><i class='uil uil-share-alt'></i>Share</span>
-                                                            <span><i class="uil uil-heart"></i>Save</span>
-                                                            <span><i class='uil uil-ban'></i>Not Interested</span>
-                                                            <span><i class="uil uil-windsock"></i>Report</span>
-                                                        </div>
+                                                       
+                                                        
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#share_post_modal"><i class='uil uil-ellipsis-v'></i>
+                                                
+                                                                <div class="dropdown-content">
+                                                                    <span><i class='uil uil-share-alt'></i>Share</span>
+                
+                                                                </div>
+                                                            </a>
+                                                            
+                                                        
                                                     </div>
                                                     <div class="vdtodt">
                                                         <span class="vdt14">109k views</span>

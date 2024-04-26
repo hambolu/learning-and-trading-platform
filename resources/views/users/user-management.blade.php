@@ -64,7 +64,7 @@
                         @endphp
 
 
-                        Users</h1>
+                        </h1>
 
                     <div class="table-cerificate">
                         <div class="table-responsive">

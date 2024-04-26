@@ -35,6 +35,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/affiliate-users', [DashboardController::class, 'affiliateUsers'])->name('affiliate-users.index');
     Route::get('/sellers', [DashboardController::class, 'sellerUsers'])->name('sellers.index');
 
+    Route::get('/categories', [DashboardController::class, 'categories'])->name('categories');
+    Route::get('/courses', [DashboardController::class, 'courses'])->name('courses');
+
 
     // Course Creation Routes
     Route::get('/create-course', function () {

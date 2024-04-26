@@ -39,6 +39,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/courses', [DashboardController::class, 'courses'])->name('courses');
 
 
+    Route::post('/create_product', [MerchantController::class, 'storeProduct'])->name('create_product');
     // Course Creation Routes
     Route::get('/create-course', function () {
         return view('create-course');

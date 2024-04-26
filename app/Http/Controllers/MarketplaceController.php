@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class MarketplaceController extends Controller
@@ -12,8 +15,8 @@ class MarketplaceController extends Controller
     {
         // Fetch all products from the database
         $products = Product::all();
-
-        return view('marketplace.index', ['products' => $products]);
+        $user = User::find(Auth::id());
+        return view('marketplace.index', compact('products','user'));
     }
 
     public function show($id)

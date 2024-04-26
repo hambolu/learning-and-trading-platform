@@ -10,6 +10,7 @@ use App\Models\DashboardSelection;
 use App\Models\Elearning;
 use App\Models\Merchant;
 use App\Models\Post;
+use App\Models\Product;
 use App\Models\Role;
 use App\Models\SMA;
 use App\Models\User;
@@ -45,7 +46,7 @@ class DashboardController extends Controller
             $add_user->save();
         }
         $posts = Post::latest()->get();
-        return view('sma_dashboard', compact('posts','user'));
+        return view('sma_dashboard', compact('posts', 'user'));
     }
 
     public function affiliate_dashboard()
@@ -60,21 +61,21 @@ class DashboardController extends Controller
             return view('membership');
         }
 
-        return view('affiliate_dashboard',compact('user'));
+        return view('affiliate_dashboard', compact('user'));
     }
 
     public function categories()
     {
         $user = User::find(Auth::id());
         $category = CourseCategory::all();
-        return view('categories', compact('category','user'));
+        return view('categories', compact('category', 'user'));
     }
 
     public function courses()
     {
         $user = User::find(Auth::id());
         $courses = Course::all();
-        return view('courses', compact('courses','user'));
+        return view('courses', compact('courses', 'user'));
     }
 
     public function elearning_dashboard()
@@ -91,7 +92,7 @@ class DashboardController extends Controller
 
         $category = CourseCategory::all();
         $courses = Course::all();
-        return view('elearning_dashboard', compact('category', 'courses','user'));
+        return view('elearning_dashboard', compact('category', 'courses', 'user'));
     }
 
     public function seller_dashboard()
@@ -105,22 +106,22 @@ class DashboardController extends Controller
             $add_user->save();
             return view('membership');
         }
-
-        return view('seller_dashboard',compact('user'));
+        $products = Product::where('seller_id', $user->id)->get();
+        return view('seller_dashboard', compact('user','products'));
     }
 
     public function elearningUsers()
     {
         $user = User::find(Auth::id());
         $elearning_users = Elearning::with(['user', 'user.wallet'])->paginate(10);
-        return view('users.user-management', compact('elearning_users','user'));
+        return view('users.user-management', compact('elearning_users', 'user'));
     }
 
     public function smaUsers()
     {
         $user = User::find(Auth::id());
         $sma_users = SMA::with(['user', 'user.wallet'])->paginate(10);
-        return view('users.user-management', compact('sma_users','user'));
+        return view('users.user-management', compact('sma_users', 'user'));
     }
 
     public function affiliateUsers()
@@ -128,13 +129,13 @@ class DashboardController extends Controller
         $user = User::find(Auth::id());
         $affiliate_users = AffiliateUser::with(['user', 'user.wallet'])->paginate(10);
 
-        return view('users.user-management', compact('affiliate_users','user'));
+        return view('users.user-management', compact('affiliate_users', 'user'));
     }
 
     public function sellerUsers()
     {
-        $user = User::find(Auth::id());
+
         $merchant_users = Merchant::with(['user', 'user.wallet'])->paginate(10);
-        return view('users.user-management', compact('merchant_users','user'));
+        return view('users.user-management', compact('merchant_users', 'user'));
     }
 }

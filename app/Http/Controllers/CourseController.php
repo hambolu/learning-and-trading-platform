@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseCategory;
-use Illuminate\Http\Request;
 use App\Traits\ImageUploadTrait;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CourseController extends Controller
 {
@@ -40,8 +41,10 @@ class CourseController extends Controller
     {
 
         try {
+            $slug = Str::slug($request->input('title'));
             $course = new Course();
             $course->title = $request->title;
+            $course->slug = $slug;
             $course->short_description = $request->short_description;
             $course->course_description = $request->course_description;
             $course->skills = $request->skills;

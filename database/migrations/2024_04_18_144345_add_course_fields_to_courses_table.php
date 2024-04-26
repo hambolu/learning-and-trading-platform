@@ -12,6 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('courses', function (Blueprint $table) {
+            $table->string('slug');
             $table->text('short_description')->nullable();
             $table->text('course_description')->nullable();
             $table->text('skills')->nullable();
@@ -32,6 +33,7 @@ return new class extends Migration
         Schema::table('courses', function (Blueprint $table) {
             $table->dropColumn([
                 'title',
+                'slug',
                 'short_description',
                 'course_description',
                 'skills',

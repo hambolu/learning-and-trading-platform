@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
+<nav class="navbar navbar-expand-lg navbar-light justify-content-between">
 
         <!-- Left-aligned items -->
         <a class="navbar-brand" href="#">Your Brand</a>
@@ -8,8 +8,8 @@
         </button>
 
         <!-- Right-aligned items -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Products</a>
                 </li>

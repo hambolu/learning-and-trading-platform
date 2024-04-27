@@ -29,7 +29,7 @@
                 @include('partial.course-category-button')
 
                 <li>
-                    <a href="shopping_cart.html" class="option_links" title="cart"><i
+                    <a href="#" class="option_links" title="cart"><i
                             class='uil uil-shopping-cart-alt'></i><span
                             class="noti_count">{{ \App\Models\Cart::where('user_id', Auth::id())->count() ?? 0 }}</span></a>
                 </li>

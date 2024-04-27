@@ -10,7 +10,13 @@
                 </li>
                 <li class="menu--item">
                     <a href="/dashboard" class="menu--link " title="Main Dashboard">
-                        <i class='uil uil-wallet-alt menu--icon'></i>
+                        <i class='uil uil-wallet menu--icon'></i>
+                        <span class="menu--label">My Space</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="/dashboard" class="menu--link " title="Main Dashboard">
+                        <i class='uil uil-wallet menu--icon'></i>
                         <span class="menu--label">Wallet</span>
                     </a>
                 </li>

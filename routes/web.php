@@ -4,9 +4,11 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MarketplaceController;
 use App\Http\Controllers\MerchantController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -38,13 +40,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/categories', [DashboardController::class, 'categories'])->name('categories');
     Route::get('/courses', [DashboardController::class, 'courses'])->name('courses');
 
+    Route::get('/send-message', [MessageController::class, 'showMessageForm'])->name('show-message-form');
+    Route::post('/send-message', [MessageController::class, 'sendMessage']);
+
 
     Route::post('/create_product', [MerchantController::class, 'storeProduct'])->name('create_product');
     // Course Creation Routes
     Route::get('/create-course', function () {
         return view('create-course');
     });
-
+    Route::get('/system_settings', function () {
+        return view('system_settings');
+    });
     Route::get('/membership', function () {
         return view('membership');
     });

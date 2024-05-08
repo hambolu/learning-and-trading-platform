@@ -3,116 +3,63 @@
 <!-- Header Start -->
 <header class="header clearfix">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                
-                <div class="ml_item">
-                    <div class="main_logo main_logo15" id="logo">
-                        <a href="index.html"><img src="images/logo.svg" alt=""></a>
-                        <a href="index.html"><img class="logo-inverse" src="images/ct_logo.svg" alt=""></a>
-                    </div>				
-                </div>	
-                <div class="collapse navbar-collapse text-dark" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">How it Works</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFeatures" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Features
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownFeatures">
-                                <a class="dropdown-item" href="#">Feature 1</a>
-                                <a class="dropdown-item" href="#">Feature 2</a>
-                                <!-- Add more dropdown items as needed -->
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Affiliates</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">FAQs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
-                </div>			
-                <div class="header_right pr-0">
-                    <ul>				
-                        <li class="profile-dropdown">
-                            <a href="#" class="opts_account" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                <img src="images/hd_dp.jpg" alt="">
-                            </a>
-                            <div class="dropdown-menu dropdown_account drop-down dropdown-menu-end">
-                                <div class="channel_my">
-                                    <div class="profile_link">
-                                        <img src="images/hd_dp.jpg" alt="">
-                                        <div class="pd_content">
-                                            <div class="rhte85">
-                                                <h6>Joginder Singh</h6>
-                                                <div class="mef78" title="Verify">
-                                                    <i class='uil uil-check-circle'></i>
-                                                </div>
-                                            </div>
-                                            <span>gambol943@gmail.com</span>
-                                        </div>							
-                                    </div>
-                                    <a href="my_instructor_profile_view.html" class="dp_link_12">View Instructor Profile</a>
-                                </div>
-                                <div class="night_mode_switch__btn">
-                                    <a href="#" id="night-mode" class="btn-night-mode">
-                                        <i class="uil uil-moon"></i> Night mode
-                                        <span class="btn-night-mode-switch">
-                                            <span class="uk-switch-button"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <a href="instructor_dashboard.html" class="item channel_item">Cursus Dashboard</a>						
-                                <a href="sign_in.html" class="item channel_item">Sign Out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>		
-            </div>		
-        </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                  </li>
+                </ul>
+            </div>
+            <ul>
+            <li class="nav-item">
+                <a class="nav-link " href="/login">Login</a>
+              </li>
+            </ul>
+              
+              <a class="btn upload_btn m-2" href="/register">Register</a>
+            </div>
+          </nav>
     </div>
 </header>
 <!-- Header End -->
 <!-- Body Start -->
 <div class="wrapper _bg4586 _new89">		
-    <div class="_215cd2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">						
-                    <div class="course_tabs">
-                        <nav>
-                            <div class="nav nav-tabs tab_crse  justify-content-center">
-                                <a class="nav-item nav-link active" href="about_us.html">About</a>
-                                <a class="nav-item nav-link" href="our_blog.html">Blog</a>
-                                <a class="nav-item nav-link" href="company_details.html">Company</a>
-                                <a class="nav-item nav-link" href="career.html">Careers</a>
-                                <a class="nav-item nav-link" href="press.html">Press</a>
-                            </div>
-                        </nav>						
-                    </div>
-                    <div class="title129 mt-35 mb-35">	
-                        <h2>Improving Lives Through Learning</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <div class="_215td5">
         <div class="container">
+            <div class="row mt-4 pt-4">
+                <div class="col pt-4">
+                    <div class="title589 text-center">
+                        <h2 style="font-size: 3rem;">Our Global Reach</h2>
+                        <p>Cursus is the leading global marketplace for teaching and learning, connecting millions of students to the skills they need to succeed.</p >
+                        <img class="line-title" src="images/line.svg" alt="">
+                    </div>
+                    <button class="btn btn-success"></button>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title589 text-center">

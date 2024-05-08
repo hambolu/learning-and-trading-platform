@@ -12,6 +12,7 @@
     <!-- Favicon Icon -->
     <link rel="icon" type="image/png" href="images/fav.png">
 
+	
     <!-- Stylesheets -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
     <link href="{{ asset('vendor/unicons-2.0.1/css/unicons.css') }}" rel="stylesheet">
@@ -30,8 +31,10 @@
     <link href="{{ asset('vendor/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/semantic/semantic.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/jquery-ui-1.12.1/jquery-ui.css') }}" rel="stylesheet">
-
-
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+	<script src="{{ asset('js/share.js') }}"></script>
+	
+	
 </head>
 
 <body class="h-100 bg-white">
@@ -44,6 +47,7 @@
     {{-- <script src="{{ asset('js/custom.js') }}"></script> --}}
     <script src="{{ asset('js/night-mode.js') }}"></script>
 	<script src="{{ asset('js/jquery-steps.min.js') }}"></script>
+	
 	<script>
 		$(document).ready(function() {
 			// Hide all submenus initially

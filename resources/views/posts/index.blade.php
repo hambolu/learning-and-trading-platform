@@ -74,7 +74,7 @@
                                         <div class="fcrse_content">
                                             
                                             <div class="eps_dots more_dropdown">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#share_post_modal"><i class='uil uil-ellipsis-v'></i>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#share_post_modal" ><i class='uil uil-ellipsis-v'></i>
                                                 
                                                     <div class="dropdown-content">
                                                         <span><i class='uil uil-share-alt'></i>Share</span>
@@ -96,3 +96,23 @@
         </div>
     </div>
 @endsection
+<script>
+    function openShareModal(slug) {
+        // AJAX request to fetch share links
+        $.ajax({
+            url: '/share/' + slug,
+            type: 'GET',
+            success: function(data) {
+                // Populate modal with share links
+                $('#facebookShareLink').attr('href', data.facebook.share);
+                $('#twitterShareLink').attr('href', data.twitter.share);
+                $('#linkedinShareLink').attr('href', data.linkedin.share);
+                $('#whatsappShareLink').attr('href', data.whatsapp.share);
+                
+                // Open modal
+                $('#shareModal').modal('show');
+            }
+        });
+    }
+</script>
+

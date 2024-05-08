@@ -31,7 +31,7 @@ class DashboardController extends Controller
 
         $category = CourseCategory::all();
         $courses = Course::all();
-        //dd($category);
+        
         return view('dashboard', compact('category', 'courses', 'user'));
     }
 
@@ -134,8 +134,11 @@ class DashboardController extends Controller
 
     public function sellerUsers()
     {
-
+        $user = User::find(Auth::id());
         $merchant_users = Merchant::with(['user', 'user.wallet'])->paginate(10);
         return view('users.user-management', compact('merchant_users', 'user'));
     }
+
+  
+    
 }

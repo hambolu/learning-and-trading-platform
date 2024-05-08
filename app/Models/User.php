@@ -79,4 +79,28 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class, 'user_roles');
     }
+
+    public function descendants($generation = 1)
+    {
+        if ($generation > 12) {
+            return collect(); // Return empty collection if generation exceeds 12
+        }
+        
+        $descendants = $this->hasManyThrough(
+            User::class,
+            Referral::class,
+            'referrer_id', // Foreign key on referrals table
+            'id', // Local key on users table
+            'id', // Local key on referrals table
+            'referred_id' // Foreign key on users table
+        )->with('descendants'); // Eager load descendants recursively
+        
+        if ($generation > 1) {
+            $descendants->with('descendants'); // Load descendants recursively
+        }
+        
+        return $descendants->get()->flatMap(function ($user) use ($generation) {
+            return $user->descendants($generation + 1);
+        })->push($this); // Include current user in the descendants
+    }
 }

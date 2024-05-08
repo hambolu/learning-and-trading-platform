@@ -58,63 +58,47 @@
             <div class="container-fluid">
                 <div class="section3125">
                     <h4 class="item_title">Categories</h4>
-                    
+
                     <div class="la5lo1">
-                        @include('partial.share')
+
                         <div class="row">
-                            @foreach ($courses as $item)
-                                <div class="col">
-                                    <div class="fcrse_1 mb-20">
-                                        <a href="" class="fcrse_img">
-                                            <img src="{{ $item->thumbnail ?? 'images/courses/img-1.jpg' }}"
-                                                alt="">
-                                            <div class="course-overlay">
-                                                <div class="badge_seller">Bestseller</div>
-                                                <div class="crse_reviews">
-                                                    <i class='uil uil-star'></i>4.5
-                                                </div>
-                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                                <div class="crse_timer">
-                                                    25 hours
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="fcrse_content">
-                                            <div class="eps_dots more_dropdown">
-                                                
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#share_post_modal"><i class='uil uil-ellipsis-v'></i>
-                                                
-                                                    <div class="dropdown-content">
-                                                        <span><i class='uil uil-share-alt'></i>Share</span>
-    
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="vdtodt">
-                                                <span class="vdt14">109k views</span>
-                                                <span class="vdt14">15 days ago</span>
-                                            </div>
-                                            <a href="course_detail_view.html"
-                                                class="crse14s">{{ $item->short_description }}</a>
-                                            <a href="#" class="crse-cate">{{ $item->title }}</a>
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">By <a href="#">John Doe</a></p>
-                                                <div class="prce142">
-                                                    @if ($item->price == 0)
-                                                        Free
-                                                    @elseif ($item->discount_price > 0)
-                                                        NGN {{ number_format($item->discount_price) }}
-                                                    @elseif ($item->discount_price == 0)
-                                                        NGN {{ number_format($item->price) }}
+                            <div class="col">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Course Name</th>
+                                            <th scope="col">Course Type</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Enrolled Users</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($courses as $item)
+                                            <tr>
+                                                <td>{{ $item->title }}</td>
+                                                <td>
+                                                    @if ($item->is_paid == 1)
+                                                        <span class="badge bg-primary">
+                                                            Paid
+                                                        </span>
+                                                    @else
+                                                        <span class="badge bg-secondary">
+                                                            Free
+                                                        </span>
                                                     @endif
-                                                </div>
-                                                <button class="shrt-cart-btn" title="cart"><i
-                                                        class="uil uil-shopping-cart-alt"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
+                                                </td>
+                                                <td>
+                                                    @foreach ($item->categories as $category)
+                                                        {{ $category->name }}
+                                                    @endforeach
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

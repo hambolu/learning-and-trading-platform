@@ -27,20 +27,38 @@
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/semantic/semantic.min.css') }}" rel="stylesheet">
-
+    <style>
+        #togglePassword {
+            cursor: pointer !important;
+        }
+    </style>
 
 </head>
 
 <body class="h-100 bg-white">
-    @include('partial.header')
     @yield('content')
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/OwlCarousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap-select/docs/docs/dist/js/bootstrap-select.js') }}"></script>
     <script src="{{ asset('vendor/semantic/semantic.min.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/night-mode.js') }}"></script>
+    <script>
+        const passwordField = document.getElementById("id_password");
+        const togglePassword = document.querySelector(".password-toggle-icon");
+
+        togglePassword.addEventListener("click", function() {
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                togglePassword.classList.remove("uil-eye");
+                togglePassword.classList.add("uil-eye-slash");
+            } else {
+                passwordField.type = "password";
+                togglePassword.classList.remove("uil-eye-slash");
+                togglePassword.classList.add("uil-eye");
+            }
+        });
+    </script>
 
 </body>
 

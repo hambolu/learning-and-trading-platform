@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +11,6 @@
     <!-- Favicon Icon -->
     <link rel="icon" type="image/png" href="images/fav.png">
 
-	
     <!-- Stylesheets -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
     <link href="{{ asset('vendor/unicons-2.0.1/css/unicons.css') }}" rel="stylesheet">
@@ -31,82 +29,65 @@
     <link href="{{ asset('vendor/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/semantic/semantic.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/jquery-ui-1.12.1/jquery-ui.css') }}" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-	<script src="{{ asset('js/share.js') }}"></script>
-	
-	
-</head>
 
+    <!-- Custom Styles -->
+    <style>
+        #togglePassword {
+            cursor: pointer;
+        }
+    </style>
+</head>
 <body class="h-100 bg-white">
     @yield('content')
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/share.js') }}"></script>
+   
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/OwlCarousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap-select/docs/docs/dist/js/bootstrap-select.js') }}"></script>
     <script src="{{ asset('vendor/semantic/semantic.min.js') }}"></script>
-    {{-- <script src="{{ asset('js/custom.js') }}"></script> --}}
     <script src="{{ asset('js/night-mode.js') }}"></script>
-	<script src="{{ asset('js/jquery-steps.min.js') }}"></script>
-	
-	<script>
-		$(document).ready(function() {
-			// Hide all submenus initially
-			$('.sub_menu').hide();
-	
-			// Add click event handler to menu links
-			$('.menu--link').click(function() {
-				// Toggle visibility of the submenu associated with this menu item
-				$(this).siblings('.sub_menu').toggle();
-			});
-		});
-	</script>
-	<script>
-		ClassicEditor.create( document.querySelector( '#editor1' ) )
-		.then( editor => {
-			window.editor1 = editor;
-		} )
-		.catch( err => {
-			console.error( err.stack );
-		} );
+    <script src="{{ asset('js/jquery-steps.min.js') }}"></script>
 
-		ClassicEditor.create( document.querySelector( '#editor2' ) )
-		.then( editor => {
-			window.editor2 = editor;
-		} )
-		.catch( err => {
-			console.error( err.stack );
-		} );
-		
-		ClassicEditor.create( document.querySelector( '#editor3' ) )
-		.then( editor => {
-			window.editor3 = editor;
-		} )
-		.catch( err => {
-			console.error( err.stack );
-		} );
-		
-		ClassicEditor.create( document.querySelector( '#editor4' ) )
-		.then( editor => {
-			window.editor4 = editor;
-		} )
-		.catch( err => {
-			console.error( err.stack );
-		} );
-	</script> 
-	<script>
-		$('#add-course-tab').steps({
-		  onFinish: function () {
-			alert('Wizard Completed');
-		  }
-		});		
-	</script>
-	<script>
-		$( function() {
-			$( ".sortable" ).sortable();
-			$( ".sortable" ).disableSelection();
-		} );
-	</script>
+    <script>
+        $(document).ready(function() {
+            // Hide all submenus initially
+            $('.sub_menu').hide();
 
+            // Add click event handler to menu links
+            $('.menu--link').click(function() {
+                // Toggle visibility of the submenu associated with this menu item
+                $(this).siblings('.sub_menu').toggle();
+            });
+        });
+    </script>
+    <script>
+        ClassicEditor.create( document.querySelector( '#editor1' ) )
+        .then( editor => {
+            window.editor1 = editor;
+        } )
+        .catch( err => {
+            console.error( err.stack );
+        } );
+
+        // More ClassicEditor.create() calls for other editors
+    </script> 
+    <script>
+        $('#add-course-tab').steps({
+          onFinish: function () {
+            alert('Wizard Completed');
+          }
+        });     
+    </script>
+    <script>
+        $( function() {
+            $( ".sortable" ).sortable();
+            $( ".sortable" ).disableSelection();
+        } );
+    </script>
 </body>
-
 </html>

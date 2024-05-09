@@ -7,7 +7,9 @@ use App\Http\Controllers\MerchantController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -16,6 +18,17 @@ use Illuminate\Support\Facades\Route;
 // Public Routes
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/optimize-clear', function () {
+    $exitCode = Artisan::call('optimize:clear');
+
+    // Check the exit code to determine if the command was successful
+    if ($exitCode === 0) {
+        return 'Optimization cache cleared successfully.';
+    } else {
+        return 'An error occurred while clearing optimization cache.';
+    }
 });
 
 // Authenticated Routes

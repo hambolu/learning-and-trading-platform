@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MarketplaceController;
@@ -7,8 +8,10 @@ use App\Http\Controllers\MerchantController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -30,6 +33,9 @@ Route::get('/optimize-clear', function () {
         return 'An error occurred while clearing optimization cache.';
     }
 });
+Route::get('/login/google', [RegisteredUserController::class, 'googleLogin'])->name('login.google');
+
+Route::get('/login/google/callback', [RegisteredUserController::class, 'socialLogin']);
 
 // Authenticated Routes
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -38,17 +44,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/sma_dashboard', [DashboardController::class, 'sma_dashboard'])->name('sma_dashboard');
     Route::get('/elearning_dashboard', [DashboardController::class, 'elearning_dashboard'])->name('elearning_dashboard');
     Route::get('/seller_dashboard', [DashboardController::class, 'seller_dashboard'])->name('seller_dashboard');
+    Route::get('/courses/search', [CourseController::class, 'search'])->name('courses.search');
+    Route::put('/system-settings', 'SystemSettingController@update')->name('system-settings.update');
 
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+
     // User Management
     Route::get('/elearning-users', [DashboardController::class, 'elearningUsers'])->name('elearning-users.index');
     Route::get('/sma-users', [DashboardController::class, 'smaUsers'])->name('sma-users.index');
     Route::get('/affiliate-users', [DashboardController::class, 'affiliateUsers'])->name('affiliate-users.index');
     Route::get('/sellers', [DashboardController::class, 'sellerUsers'])->name('sellers.index');
+
+    Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+    Route::put('/users/{id}/suspend', [UserController::class, 'suspend'])->name('users.suspend');
 
     Route::get('/categories', [DashboardController::class, 'categories'])->name('categories');
     Route::get('/courses', [DashboardController::class, 'courses'])->name('courses');

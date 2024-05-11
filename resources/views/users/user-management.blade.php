@@ -60,11 +60,13 @@
                             // Remove special characters and convert to title case
                             $cleanedRouteName = ucwords(preg_replace('/[^a-zA-Z0-9]+/', ' ', $currentRouteName));
 
+                            $cleanedRouteName = str_replace(' Index', '', $cleanedRouteName);
+
                             echo $cleanedRouteName;
                         @endphp
 
 
-                        </h1>
+                    </h1>
 
                     <div class="table-cerificate">
                         <div class="table-responsive">
@@ -87,9 +89,10 @@
                                                 <td>{{ $user->user->email }}</td>
                                                 <td>NGN {{ number_format($user->user->wallet->balance) ?? 'N/A' }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="" class="btn btn-primary btn-sm">View</a>
-                                                    <a href="" class="btn btn-primary btn-sm">Suspend</a>
+                                                    <a href="/users/{{ $user->id }}"
+                                                        class="btn btn-primary btn-sm">View</a>
+                                                    <a href="/users/{{ $user->id }}/suspend"
+                                                        class="btn btn-primary btn-sm">Suspend</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -101,9 +104,10 @@
                                                 <td>{{ $user->user->email }}</td>
                                                 <td>NGN {{ number_format($user->user->wallet->balance) ?? 'N/A' }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="" class="btn btn-primary btn-sm">View</a>
-                                                    <a href="" class="btn btn-primary btn-sm">Suspend</a>
+                                                    <a href="/users/{{ $user->id }}"
+                                                        class="btn btn-primary btn-sm">View</a>
+                                                    <a href="/users/{{ $user->id }}/suspend"
+                                                        class="btn btn-primary btn-sm">Suspend</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -115,9 +119,10 @@
                                                 <td>{{ $user->user->email }}</td>
                                                 <td>NGN {{ number_format($user->user->wallet->balance) ?? 'N/A' }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="" class="btn btn-primary btn-sm">View</a>
-                                                    <a href="" class="btn btn-primary btn-sm">Suspend</a>
+                                                    <a href="/users/{{ $user->id }}"
+                                                        class="btn btn-primary btn-sm">View</a>
+                                                    <a href="/users/{{ $user->id }}/suspend"
+                                                        class="btn btn-primary btn-sm">Suspend</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -129,9 +134,10 @@
                                                 <td>{{ $user->user->email }}</td>
                                                 <td>NGN {{ number_format($user->user->wallet->balance) ?? 'N/A' }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="" class="btn btn-primary btn-sm">View</a>
-                                                    <a href="" class="btn btn-primary btn-sm">Suspend</a>
+                                                    <a href="/users/{{ $user->id }}"
+                                                        class="btn btn-primary btn-sm">View</a>
+                                                    <a href="/users/{{ $user->id }}/suspend"
+                                                        class="btn btn-primary btn-sm">Suspend</a>
                                                 </td>
                                             </tr>
                                         @endforeach

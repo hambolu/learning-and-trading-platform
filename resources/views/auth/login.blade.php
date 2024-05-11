@@ -43,7 +43,7 @@
                             <div class="ui form mt-30 checkbox_sign">
                                 <div class="inline field">
                                     <div class="ui checkbox mncheck">
-                                        <input type="checkbox" tabindex="0" class="hidden" name="remember">
+                                        <input type="checkbox" name="remember">
                                         <label>Remember Me</label>
                                     </div>
                                 </div>
@@ -52,12 +52,9 @@
                         </form>
 
                         <p class="sgntrm145">Or <a href="forgot_password.html">Forgot Password</a>.</p>
-                        <button class="social_lnk_btn color_btn_fb"><i class="uil uil-facebook-f"></i>Continue with
-                            Facebook</button>
-                        <button class="social_lnk_btn mt-15 color_btn_tw"><i class="uil uil-twitter"></i>Continue with
-                            Twitter</button>
-                        <button class="social_lnk_btn mt-15 color_btn_go"><i class="uil uil-google"></i>Continue with
-                            Google</button>
+                        
+                        <a href="{{ route('login.google') }}" class="btn login-btn social_lnk_btn mt-15 color_btn_go"><i class="uil uil-google"></i>Continue with
+                            Google</a>
                         <p class="mb-0 mt-30 hvsng145">Don't have an account? <a href="/register">Sign Up</a></p>
                     </div>
                     <div class="sign_footer"><img src="images/sign_logo.png" alt="">© 2024 <strong>Cursus</strong>.

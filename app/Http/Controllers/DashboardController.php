@@ -74,7 +74,7 @@ class DashboardController extends Controller
     public function courses()
     {
         $user = User::find(Auth::id());
-        $courses = Course::all();
+        $courses = Course::with('enrollments')->get();
         return view('courses', compact('courses', 'user'));
     }
 

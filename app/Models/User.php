@@ -103,4 +103,9 @@ class User extends Authenticatable
             return $user->descendants($generation + 1);
         })->push($this); // Include current user in the descendants
     }
+
+    public function postShareCounts()
+    {
+        return $this->hasMany(PostShareCount::class);
+    }
 }

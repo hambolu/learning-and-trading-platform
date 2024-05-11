@@ -11,8 +11,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Laravel\Socialite\Facades\Socialite;
+use Exception;
 
 class RegisteredUserController extends Controller
 {
@@ -65,5 +68,49 @@ class RegisteredUserController extends Controller
             toastr()->error($e->getMessage());
             return redirect()->route('register');
         }
+    }
+
+    public function socialLogin()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+            
+            $check_email = User::where('email', $user->email)->first();
+            // Check if user already exists in your database
+            if (!$check_email) {
+                # code...
+                $existingUser = User::where('google_id', $user->id)->first();
+        
+                if ($existingUser) {
+                    // Log in existing user
+                    auth()->login($existingUser, true);
+                } else {
+                    // Create a new user (optional, adjust based on your needs)
+                    $newUser = User::create([
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'google_id' => $user->id,
+                        // Add other user fields as needed
+                    ]);
+                    auth()->login($newUser, true);
+                }
+        
+                toastr()->success('Registration successfully!');
+                return redirect()->route('dashboard');
+            }else{
+                toastr()->error('Email exists');
+                return redirect()->route('register');
+            }
+        } catch (Exception $e) {
+            toastr()->error($e->getMessage());
+            return redirect()->route('register');
+        }
+
+    
+    }
+
+    public function googleLogin()
+    {
+        return Socialite::driver('google')->redirect();
     }
 }

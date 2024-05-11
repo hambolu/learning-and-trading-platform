@@ -72,4 +72,17 @@ class CourseController extends Controller
             return back();
         }
     }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $courses = Course::where('title', 'like', "%{$query}%")
+            ->orWhere('slug', 'like', "%{$query}%")
+            ->orWhere('price', 'like', "%{$query}%")  // Price might need adjustments
+            ->orWhere('keywords', 'like', "%{$query}%")
+            ->orWhere('requirements', 'like', "%{$query}%")
+            ->get();
+
+        return view('courses.index', compact('courses'));
+    }
 }

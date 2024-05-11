@@ -85,4 +85,10 @@ class CourseController extends Controller
 
         return view('courses.index', compact('courses'));
     }
+
+    public function showCourse($id)
+    {
+        $course = Course::with('enrollments')->find($id);
+        return view('course_detail_view',compact('course'));
+    }
 }

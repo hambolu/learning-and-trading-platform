@@ -40,6 +40,12 @@
                                 <p class="text-danger text-xs italic">{{ $message }}</p>
                             @enderror
                         </div>
+                        <div class="ui search focus mt-15">
+                            <div class="ui left icon input swdh11 swdh19">
+                                <input class="prompt srch_explore" type="text" name="referral_code" id="referral_code"  placeholder="Referral code">
+                            </div>
+                           
+                        </div>
                         <div class="ui form mt-30 checkbox_sign">
                             <div class="inline field">
                                 <div class="ui checkbox mncheck">

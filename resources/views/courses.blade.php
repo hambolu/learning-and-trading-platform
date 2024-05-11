@@ -43,9 +43,9 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @foreach ($item->categories as $category)
-                                                        {{ $category->name }}
-                                                    @endforeach
+                                                    
+                                                        {{ $item->category->name }}
+                                                    
                                                 </td>
                                                 <td>{{ $item->enrollments->count() ?? 0 }}</td>
                                             </tr>
@@ -60,3 +60,4 @@
             </div>
         </div>
     </div>
+@endsection

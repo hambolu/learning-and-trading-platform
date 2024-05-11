@@ -85,7 +85,7 @@
                                                         <span class="vdt14">109k views</span>
                                                         <span class="vdt14">15 days ago</span>
                                                     </div>
-                                                    <a href="course_detail_view.html"
+                                                    <a href="/course_detail_view/{{ $item->id }}"
                                                         class="crse14s">{{ $item->short_description }}</a>
                                                     <a href="#" class="crse-cate">{{ $item->title }}</a>
                                                     <div class="auth1lnkprce">

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CourseCategory extends Model
 {
     use HasFactory;
+
+    
 }

@@ -82,7 +82,7 @@
                                                 </a>
                                             </div>
 
-                                            <a href="" class="crse14s">{{ $item->name }}</a>
+                                            <a href="/marketplace/{{ $item->id }}" class="crse14s">{{ $item->name }}</a>
 
                                         </div>
                                     </div>

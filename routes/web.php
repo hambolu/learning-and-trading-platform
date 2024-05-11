@@ -46,7 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/seller_dashboard', [DashboardController::class, 'seller_dashboard'])->name('seller_dashboard');
     Route::get('/courses/search', [CourseController::class, 'search'])->name('courses.search');
     Route::put('/system-settings', 'SystemSettingController@update')->name('system-settings.update');
-
+    Route::get('/course_detail_view/{id}', [CourseController::class, 'showCourse']);
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

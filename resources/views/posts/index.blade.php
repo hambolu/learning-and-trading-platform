@@ -8,8 +8,9 @@
 
                 <div class="section3125 mt-50">
                     <h4 class="item_title">Latest Posts</h4>
-
+                    @if (Auth::user()->roles->contains('name', 'super_admin'))
                     <a href="/posts/create" class="see150 upload_btn">Create Post</a>
+                    @endif
                     <div class="la5lo1">
                         <div class="row">
                             @foreach ($posts as $item)

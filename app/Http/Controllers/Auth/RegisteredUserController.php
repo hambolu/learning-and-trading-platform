@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // Ensure unique email in 'users' table
             'password' => ['required', Rules\Password::defaults()],
         ]);
-    
+
         try {
             // Attempt to create a new user
             $user = User::create([
@@ -48,22 +48,21 @@ class RegisteredUserController extends Controller
                 'email' => strtolower($validatedData['email']),
                 'password' => Hash::make($validatedData['password']),
             ]);
-    
+
             // Create a wallet for the user
             Wallet::create([
                 'user_id' => $user->id,
                 'balance' => 0,
             ]);
-    
+
             // Trigger the Registered event
             event(new Registered($user));
-    
+
             // Log in the newly registered user
             Auth::login($user);
-    
+
             toastr()->success('Registration successfully!');
             return redirect()->route('dashboard');
-    
         } catch (\Exception $e) {
             toastr()->error($e->getMessage());
             return redirect()->route('register');
@@ -74,13 +73,13 @@ class RegisteredUserController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
-            
+
             $check_email = User::where('email', $user->email)->first();
             // Check if user already exists in your database
             if (!$check_email) {
                 # code...
                 $existingUser = User::where('google_id', $user->id)->first();
-        
+
                 if ($existingUser) {
                     // Log in existing user
                     auth()->login($existingUser, true);
@@ -94,10 +93,10 @@ class RegisteredUserController extends Controller
                     ]);
                     auth()->login($newUser, true);
                 }
-        
+
                 toastr()->success('Registration successfully!');
                 return redirect()->route('dashboard');
-            }else{
+            } else {
                 toastr()->error('Email exists');
                 return redirect()->route('register');
             }
@@ -105,12 +104,18 @@ class RegisteredUserController extends Controller
             toastr()->error($e->getMessage());
             return redirect()->route('register');
         }
-
-    
     }
 
     public function googleLogin()
     {
-        return Socialite::driver('google')->redirect();
+        try {
+            //code...
+            $googleDriver = Socialite::driver('google');
+            if ($googleDriver) {
+                return $googleDriver->redirect();
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

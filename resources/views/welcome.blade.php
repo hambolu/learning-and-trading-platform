@@ -49,16 +49,20 @@
                             <h1>{{ env('APP_NAME') }}</h1>
                         </a>
                         <!-- ***** Logo End ***** -->
-                        
+
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" >Home</a></li>
+                            <li class="scroll-to-section"><a href="#top">Home</a></li>
                             <li class="scroll-to-section"><a href="#services">Services</a></li>
                             <li class="scroll-to-section"><a href="#courses">Courses</a></li>
                             <li class="scroll-to-section"><a href="#team">Team</a></li>
                             <li class="scroll-to-section"><a href="#events">Events</a></li>
-                            <li class="scroll-to-section"><a href="/login">Login</a></li>
-                            <li class="scroll-to-section "><a class="active" href="/register">Register Now</a></li>
+                            @auth
+                            <li class="scroll-to-section "><a class="active" href="/dashboard">Dashboard</a></li>
+                            @else
+                                <li class="scroll-to-section"><a href="/login">Login</a></li>
+                                <li class="scroll-to-section "><a class="active" href="/register">Register Now</a></li>
+                            @endauth
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>

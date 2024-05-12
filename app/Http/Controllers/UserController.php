@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function show($id)
     {
-        $user = User::with(['courses','carts','wallet','descendants'])->find($id);
+        $user = User::with(['courses','carts','wallet'])->find($id);
 
         // You can return the user data to a view or in JSON format
         return view('users.show', compact('user'));

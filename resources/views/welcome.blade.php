@@ -1,369 +1,718 @@
-@extends('layouts.app')
-@section('content')
-<!-- Header Start -->
-<header class="header clearfix">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                  </li>
-                </ul>
-            </div>
-            <ul>
-            <li class="nav-item">
-                <a class="nav-link " href="/login">Login</a>
-              </li>
-            </ul>
-              
-              <a class="btn upload_btn m-2" href="/register">Register</a>
-            </div>
-          </nav>
-    </div>
-</header>
-<!-- Header End -->
-<!-- Body Start -->
-<div class="wrapper _bg4586 _new89">		
-    
-    <div class="_215td5">
-        <div class="container">
-            <div class="row mt-4 pt-4">
-                <div class="col pt-4">
-                    <div class="title589 text-center">
-                        <h2 style="font-size: 3rem;">Our Global Reach</h2>
-                        <p>Cursus is the leading global marketplace for teaching and learning, connecting millions of students to the skills they need to succeed.</p >
-                        <img class="line-title" src="images/line.svg" alt="">
-                    </div>
-                    <button class="btn btn-success"></button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title589 text-center">
-                        <h2>Our Features</h2>
-                        <p>On Cursus, you have access to:</p>
-                        <img class="line-title" src="images/line.svg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-3  col-sm-6">
-                    <div class="feature125">
-                        <i class="uil uil-mobile-android-alt"></i>
-                        <h4>Mobile learning</h4>
-                        <p>Quisque nec volutpat sem. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-sm-6">
-                    <div class="feature125">
-                        <i class="uil uil-users-alt"></i>
-                        <h4>Academic & Technical Support</h4>
-                        <p>Quisque nec volutpat sem. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-sm-6">
-                    <div class="feature125">
-                        <i class="uil uil-award"></i>
-                        <h4>Sharable Certificates</h4>
-                        <p>Quisque nec volutpat sem. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-sm-6">
-                    <div class="feature125">
-                        <i class="uil uil-globe"></i>
-                        <h4>An Inclusive Experience</h4>
-                        <p>Quisque nec volutpat sem. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                    </div>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>{{ env('APP_NAME') }}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ asset('main/assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('main/assets/css/softearner.css') }}">
+    <link rel="stylesheet" href="{{ asset('main/assets/css/owl.css') }}">
+    <link rel="stylesheet" href="{{ asset('main/assets/css/animate.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </div>
-    <div class="_215zd5">
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="title478">
-                        <h2>Our Story</h2>
-                        <img class="line-title" src="images/line.svg" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur vel dolor id ultrices. Proin a magna at mi pretium pulvinar in eu enim. Nulla vel lacus lectus. Donec at venenatis augue. Nam vitae purus placerat, hendrerit nisl id, finibus magna. Etiam pharetra gravida ornare. Donec sagittis, ipsum in egestas egestas, dui lorem sollicitudin justo, ut ullamcorper velit neque eu velit. Ut et fringilla elit. Mauris augue augue, auctor a blandit ac, convallis eget neque. Curabitur in ante ante. Nullam laoreet tempus erat at ornare. In nisl nisi, dapibus eget facilisis sit amet, commodo quis nibh.</p >
-                    </div>
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="/" class="logo">
+                            <h1>{{ env('APP_NAME') }}</h1>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" >Home</a></li>
+                            <li class="scroll-to-section"><a href="#services">Services</a></li>
+                            <li class="scroll-to-section"><a href="#courses">Courses</a></li>
+                            <li class="scroll-to-section"><a href="#team">Team</a></li>
+                            <li class="scroll-to-section"><a href="#events">Events</a></li>
+                            <li class="scroll-to-section"><a href="/login">Login</a></li>
+                            <li class="scroll-to-section "><a class="active" href="/register">Register Now</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
                 </div>
-                <div class="col-md-6">
-                    <div class="story125">
-                        <img src="images/about/stroy_img.png" alt="">
-                    </div>
-                </div>
-                
             </div>
         </div>
-    </div>
-    <div class="_215td5">
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="main-banner" id="top">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="title589 text-center">
-                        <h2>Our Global Reach</h2>
-                        <p>Cursus is the leading global marketplace for teaching and learning, connecting millions of students to the skills they need to succeed.</p >
-                        <img class="line-title" src="images/line.svg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="p__metric">
-                        25k
-                        <span>Instructors</span>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="p__metric">
-                        95k
-                        <span>Courses</span>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="p__metric">
-                        40M
-                        <span>Course enrollments</span>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="p__metric">
-                        50+
-                        <span>Languages</span>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="p__metric">
-                        595+
-                        <span>Membership Partners</span>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="p__metric">
-                        295
-                        <span>Countries</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="_215xd5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title589 text-center">
-                        <h2>Meet Our Team</h2>
-                        <p>A perfect blend of creativity and technical wizardry. The best people formula for great websites!</p>
-                        <img class="line-title" src="images/line.svg" alt="">
-                    </div>						
-                </div>
-                <div class="col-lg-6">
-                    <div class="jmio125">
-                        <p>Morbi eget elit eget turpis varius mollis eget vel massa. Donec porttitor, sapien eget commodo vulputate, erat felis aliquam dolor, non condimentum libero dolor vel ipsum. Sed porttitor nisi eget nulla ullamcorper eleifend. Fusce tristique sapien nisi, vel feugiat neque luctus sit amet. Quisque consequat quis turpis in mattis. Maecenas eget mollis nisl. Cras porta dapibus est, quis malesuada ex iaculis at. Vestibulum egestas tortor in urna tempor, in fermentum lectus bibendum. In leo leo, bibendum at pharetra at, tincidunt in nulla. In vel malesuada nulla, sed tincidunt neque. Phasellus at massa vel sem aliquet sodales non in magna. Ut tempus ipsum sagittis neque cursus euismod. Vivamus luctus elementum tortor, ac aliquet dolor vehicula et.</p>
-                        <a href="#" class="crer_btn_link">Join Our Team</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="jmio125">
-                        <img src="images/about/team.jpg" alt="">
-                    </div>
-                </div>					
-            </div>
-        </div>
-    </div>
-    
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="item_f1">
-                        <a href="about_us.html">About</a>
-                        <a href="our_blog.html">Blog</a>
-                        <a href="career.html">Careers</a>
-                        <a href="press.html">Press</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="item_f1">
-                        <a href="help.html">Help</a>
-                        <a href="coming_soon.html">Advertise</a>
-                        <a href="coming_soon.html">Developers</a>
-                        <a href="contact_us.html">Contact Us</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="item_f1">
-                        <a href="terms_of_use.html">Copyright Policy</a>
-                        <a href="terms_of_use.html">Terms</a>
-                        <a href="terms_of_use.html">Privacy Policy</a>
-                        <a href="sitemap.html">Sitemap</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="item_f3">
-                        <a href="#" class="btn1542">Teach on Cursus</a>
-                        <div class="lng_btn">
-                            <div class="ui language bottom right pointing dropdown floating" id="languages" data-content="Select Language">
-                                <a href="#"><i class='uil uil-globe lft'></i>Language<i class='uil uil-angle-down rgt'></i></a>
-                                <div class="menu">
-                                    <div class="scrolling menu">
-                                        <div class="item" data-percent="100" data-value="en" data-english="English">
-                                            <span class="description">English</span>
-                                            English
-                                        </div>
-                                        <div class="item" data-percent="94" data-value="da" data-english="Danish">
-                                            <span class="description">dansk</span>
-                                            Danish
-                                        </div>
-                                        <div class="item" data-percent="94" data-value="es" data-english="Spanish">
-                                            <span class="description">Español</span>
-                                            Spanish
-                                        </div>
-                                        <div class="item" data-percent="34" data-value="zh" data-english="Chinese">
-                                            <span class="description">简体中文</span>
-                                            Chinese
-                                        </div>
-                                        <div class="item" data-percent="54" data-value="zh_TW" data-english="Chinese (Taiwan)">
-                                            <span class="description">中文 (臺灣)</span>
-                                            Chinese (Taiwan)
-                                        </div>
-                                        <div class="item" data-percent="79" data-value="fa" data-english="Persian">
-                                            <span class="description">پارسی</span>
-                                            Persian
-                                        </div>
-                                        <div class="item" data-percent="41" data-value="fr" data-english="French">
-                                            <span class="description">Français</span>
-                                            French
-                                        </div>
-                                        <div class="item" data-percent="37" data-value="el" data-english="Greek">
-                                            <span class="description">ελληνικά</span>
-                                            Greek
-                                        </div>
-                                        <div class="item" data-percent="37" data-value="ru" data-english="Russian">
-                                            <span class="description">Русский</span>
-                                            Russian
-                                        </div>
-                                        <div class="item" data-percent="36" data-value="de" data-english="German">
-                                            <span class="description">Deutsch</span>
-                                            German
-                                        </div>
-                                        <div class="item" data-percent="23" data-value="it" data-english="Italian">
-                                            <span class="description">Italiano</span>
-                                            Italian
-                                        </div>
-                                        <div class="item" data-percent="21" data-value="nl" data-english="Dutch">
-                                            <span class="description">Nederlands</span>
-                                            Dutch
-                                        </div>
-                                        <div class="item" data-percent="19" data-value="pt_BR" data-english="Portuguese">
-                                            <span class="description">Português(BR)</span>
-                                            Portuguese
-                                        </div>
-                                        <div class="item" data-percent="17" data-value="id" data-english="Indonesian">
-                                            <span class="description">Indonesian</span>
-                                            Indonesian
-                                        </div>
-                                        <div class="item" data-percent="12" data-value="lt" data-english="Lithuanian">
-                                            <span class="description">Lietuvių</span>
-                                            Lithuanian
-                                        </div>
-                                        <div class="item" data-percent="11" data-value="tr" data-english="Turkish">
-                                            <span class="description">Türkçe</span>
-                                            Turkish
-                                        </div>
-                                        <div class="item" data-percent="10" data-value="kr" data-english="Korean">
-                                            <span class="description">한국어</span>
-                                            Korean
-                                        </div>
-                                        <div class="item" data-percent="7" data-value="ar" data-english="Arabic">
-                                            <span class="description">العربية</span>
-                                            Arabic
-                                        </div>
-                                        <div class="item" data-percent="6" data-value="hu" data-english="Hungarian">
-                                            <span class="description">Magyar</span>
-                                            Hungarian
-                                        </div>
-                                        <div class="item" data-percent="6" data-value="vi" data-english="Vietnamese">
-                                            <span class="description">tiếng Việt</span>
-                                            Vietnamese
-                                        </div>
-                                        <div class="item" data-percent="5" data-value="sv" data-english="Swedish">
-                                            <span class="description">svenska</span>
-                                            Swedish
-                                        </div>
-                                        <div class="item" data-precent="4" data-value="pl" data-english="Polish">
-                                            <span class="description">polski</span>
-                                            Polish
-                                        </div>
-                                        <div class="item" data-percent="6" data-value="ja" data-english="Japanese">
-                                            <span class="description">日本語</span>
-                                            Japanese
-                                        </div>
-                                        <div class="item" data-percent="0" data-value="ro" data-english="Romanian">
-                                            <span class="description">românește</span>
-                                            Romanian
-                                        </div>										
+                    <div class="owl-carousel owl-banner">
+                        <div class="item item-1">
+                            <div class="header-text">
+                                <span class="category">Our Courses</span>
+                                <h2>With Softearner Teachers, Everything Is Easier</h2>
+                                <p>Softearner is free CSS template designed by TemplateMo for online educational related
+                                    websites. This layout is based on the famous Bootstrap v5.3.0 framework.</p>
+                                <div class="buttons">
+                                    <div class="main-button">
+                                        <a href="/register">Get Started</a>
+                                    </div>
+                                    <div class="icon-button">
+                                        <a href="#"><i class="fa fa-play"></i> What's Softearner?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item item-2">
+                            <div class="header-text">
+                                <span class="category">Best Result</span>
+                                <h2>Get the best result out of your effort</h2>
+                                <p>You are allowed to use this template for any educational or commercial purpose. You
+                                    are not allowed to re-distribute the template ZIP file on any other website.</p>
+                                <div class="buttons">
+                                    <div class="main-button">
+                                        <a href="/register">Start Earning</a>
+                                    </div>
+                                    <div class="icon-button">
+                                        <a href="#"><i class="fa fa-play"></i> What's the best result?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item item-3">
+                            <div class="header-text">
+                                <span class="category">Online Learning</span>
+                                <h2>Online Learning helps you save the time</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporious
+                                    incididunt ut labore et dolore magna aliqua suspendisse.</p>
+                                <div class="buttons">
+                                    <div class="main-button">
+                                        <a href="/register">Get Started</a>
+                                    </div>
+                                    <div class="icon-button">
+                                        <a href="#"><i class="fa fa-play"></i> What's Online Course?</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="footer_bottm">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="fotb_left">
-                                    <li>
-                                        <a href="index.html">
-                                            <div class="footer_logo">
-                                                <img src="images/logo1.svg" alt="">
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <p>© 2024 <strong>Cursus</strong>. All Rights Reserved.</p>
-                                    </li>
-                                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="services section" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="main/assets/images/service-01.png" alt="online degrees">
+                        </div>
+                        <div class="main-content">
+                            <h4>Online Degrees</h4>
+                            <p>Whenever you need free templates in HTML CSS, you just remember TemplateMo website.</p>
+                            <div class="main-button">
+                                <a href="#">Read More</a>
                             </div>
-                            <div class="col-md-6">
-                                <div class="edu_social_links">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-youtube"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="main/assets/images/service-02.png" alt="short courses">
+                        </div>
+                        <div class="main-content">
+                            <h4>Short Courses</h4>
+                            <p>You can browse free templates based on different tags such as digital marketing, etc.</p>
+                            <div class="main-button">
+                                <a href="#">Read More</a>
                             </div>
-                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="main/assets/images/service-03.png" alt="web experts">
+                        </div>
+                        <div class="main-content">
+                            <h4>Web Experts</h4>
+                            <p>You can start learning HTML CSS by modifying free templates from our website too.</p>
+                            <div class="main-button">
+                                <a href="#">Read More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="section about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Where shall we begin?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't
+                                    eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
+                                    ultrices gravida.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How do we work together?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't
+                                    eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
+                                    ultrices gravida.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    Why Softearner is the best?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    There are more than one hundred responsive HTML templates to choose from
+                                    <strong>Template</strong>Mo website. You can browse by different tags or categories.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                    Do we get the best support?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    You can also search on Google with specific keywords such as <code>templatemo
+                                        business templates, templatemo gallery templates, admin dashboard templatemo,
+                                        3-column templatemo, etc.</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 align-self-center">
+                    <div class="section-heading">
+                        <h6>About Us</h6>
+                        <h2>What make us the best academy online?</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravid risus commodo.</p>
+                        <div class="main-button">
+                            <a href="#">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section courses" id="courses">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-heading">
+                        <h6>Latest Courses</h6>
+                        <h2>Latest Courses</h2>
+                    </div>
+                </div>
+            </div>
+            <ul class="event_filter">
+                <li>
+                    <a class="is_active" href="#!" data-filter="*">Show All</a>
+                </li>
+                <li>
+                    <a href="#!" data-filter=".design">Webdesign</a>
+                </li>
+                <li>
+                    <a href="#!" data-filter=".development">Development</a>
+                </li>
+                <li>
+                    <a href="#!" data-filter=".wordpress">Wordpress</a>
+                </li>
+            </ul>
+            <div class="row event_box">
+                <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design">
+                    <div class="events_item">
+                        <div class="thumb">
+                            <a href="#"><img src="main/assets/images/course-01.jpg" alt=""></a>
+                            <span class="category">Webdesign</span>
+                            <span class="price">
+                                <h6><em>$</em>160</h6>
+                            </span>
+                        </div>
+                        <div class="down-content">
+                            <span class="author">Stella Blair</span>
+                            <h4>Learn Web Design</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6  development">
+                    <div class="events_item">
+                        <div class="thumb">
+                            <a href="#"><img src="main/assets/images/course-02.jpg" alt=""></a>
+                            <span class="category">Development</span>
+                            <span class="price">
+                                <h6><em>$</em>340</h6>
+                            </span>
+                        </div>
+                        <div class="down-content">
+                            <span class="author">Cindy Walker</span>
+                            <h4>Web Development Tips</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design wordpress">
+                    <div class="events_item">
+                        <div class="thumb">
+                            <a href="#"><img src="main/assets/images/course-03.jpg" alt=""></a>
+                            <span class="category">Wordpress</span>
+                            <span class="price">
+                                <h6><em>$</em>640</h6>
+                            </span>
+                        </div>
+                        <div class="down-content">
+                            <span class="author">David Hutson</span>
+                            <h4>Latest Web Trends</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 development">
+                    <div class="events_item">
+                        <div class="thumb">
+                            <a href="#"><img src="main/assets/images/course-04.jpg" alt=""></a>
+                            <span class="category">Development</span>
+                            <span class="price">
+                                <h6><em>$</em>450</h6>
+                            </span>
+                        </div>
+                        <div class="down-content">
+                            <span class="author">Stella Blair</span>
+                            <h4>Online Learning Steps</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 wordpress development">
+                    <div class="events_item">
+                        <div class="thumb">
+                            <a href="#"><img src="main/assets/images/course-05.jpg" alt=""></a>
+                            <span class="category">Wordpress</span>
+                            <span class="price">
+                                <h6><em>$</em>320</h6>
+                            </span>
+                        </div>
+                        <div class="down-content">
+                            <span class="author">Sophia Rose</span>
+                            <h4>Be a WordPress Master</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 wordpress design">
+                    <div class="events_item">
+                        <div class="thumb">
+                            <a href="#"><img src="main/assets/images/course-06.jpg" alt=""></a>
+                            <span class="category">Webdesign</span>
+                            <span class="price">
+                                <h6><em>$</em>240</h6>
+                            </span>
+                        </div>
+                        <div class="down-content">
+                            <span class="author">David Hutson</span>
+                            <h4>Full Stack Developer</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section fun-facts">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrapper">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="counter">
+                                    <h2 class="timer count-title count-number" data-to="150" data-speed="1000"></h2>
+                                    <p class="count-text ">Happy Students</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="counter">
+                                    <h2 class="timer count-title count-number" data-to="804" data-speed="1000"></h2>
+                                    <p class="count-text ">Course Hours</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="counter">
+                                    <h2 class="timer count-title count-number" data-to="50" data-speed="1000"></h2>
+                                    <p class="count-text ">Employed Students</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="counter end">
+                                    <h2 class="timer count-title count-number" data-to="15" data-speed="1000"></h2>
+                                    <p class="count-text ">Years Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="team section" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <div class="main-content">
+                            <img src="main/assets/images/member-01.jpg" alt="">
+                            <span class="category">UX Teacher</span>
+                            <h4>Sophia Rose</h4>
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <div class="main-content">
+                            <img src="main/assets/images/member-02.jpg" alt="">
+                            <span class="category">Graphic Teacher</span>
+                            <h4>Cindy Walker</h4>
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <div class="main-content">
+                            <img src="main/assets/images/member-03.jpg" alt="">
+                            <span class="category">Full Stack Master</span>
+                            <h4>David Hutson</h4>
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <div class="main-content">
+                            <img src="main/assets/images/member-04.jpg" alt="">
+                            <span class="category">Digital Animator</span>
+                            <h4>Stella Blair</h4>
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="owl-carousel owl-testimonials">
+                        <div class="item">
+                            <p>“Please tell your friends or collegues about TemplateMo website. Anyone can access the
+                                website to download free templates. Thank you for visiting.”</p>
+                            <div class="author">
+                                <img src="main/assets/images/testimonial-author.jpg" alt="">
+                                <span class="category">Full Stack Master</span>
+                                <h4>Claude David</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravid.”
+                            </p>
+                            <div class="author">
+                                <img src="main/assets/images/testimonial-author.jpg" alt="">
+                                <span class="category">UI Expert</span>
+                                <h4>Thomas Jefferson</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <p>“Softearner is free website template provided by TemplateMo for educational related
+                                websites. This CSS layout is based on Bootstrap v5.3.0 framework.”</p>
+                            <div class="author">
+                                <img src="main/assets/images/testimonial-author.jpg" alt="">
+                                <span class="category">Digital Animator</span>
+                                <h4>Stella Blair</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 align-self-center">
+                    <div class="section-heading">
+                        <h6>TESTIMONIALS</h6>
+                        <h2>What they say about us?</h2>
+                        <p>You can search free CSS templates on Google using different keywords such as templatemo
+                            portfolio, templatemo gallery, templatemo blue color, etc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section events" id="events">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-heading">
+                        <h6>Schedule</h6>
+                        <h2>Upcoming Events</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-6">
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="image">
+                                    <img src="main/assets/images/event-01.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <ul>
+                                    <li>
+                                        <span class="category">Web Design</span>
+                                        <h4>UI Best Practices</h4>
+                                    </li>
+                                    <li>
+                                        <span>Date:</span>
+                                        <h6>16 Feb 2036</h6>
+                                    </li>
+                                    <li>
+                                        <span>Duration:</span>
+                                        <h6>22 Hours</h6>
+                                    </li>
+                                    <li>
+                                        <span>Price:</span>
+                                        <h6>$120</h6>
+                                    </li>
+                                </ul>
+                                <a href="#"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-6">
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="image">
+                                    <img src="main/assets/images/event-02.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <ul>
+                                    <li>
+                                        <span class="category">Front End</span>
+                                        <h4>New Design Trend</h4>
+                                    </li>
+                                    <li>
+                                        <span>Date:</span>
+                                        <h6>24 Feb 2036</h6>
+                                    </li>
+                                    <li>
+                                        <span>Duration:</span>
+                                        <h6>30 Hours</h6>
+                                    </li>
+                                    <li>
+                                        <span>Price:</span>
+                                        <h6>$320</h6>
+                                    </li>
+                                </ul>
+                                <a href="#"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-6">
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="image">
+                                    <img src="main/assets/images/event-03.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <ul>
+                                    <li>
+                                        <span class="category">Full Stack</span>
+                                        <h4>Web Programming</h4>
+                                    </li>
+                                    <li>
+                                        <span>Date:</span>
+                                        <h6>12 Mar 2036</h6>
+                                    </li>
+                                    <li>
+                                        <span>Duration:</span>
+                                        <h6>48 Hours</h6>
+                                    </li>
+                                    <li>
+                                        <span>Price:</span>
+                                        <h6>$440</h6>
+                                    </li>
+                                </ul>
+                                <a href="#"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-us section" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6  align-self-center">
+                    <div class="section-heading">
+                        <h6>Contact Us</h6>
+                        <h2>Feel free to contact us anytime</h2>
+                        <p>Thank you for choosing our templates. We provide you best CSS templates at absolutely 100%
+                            free of charge. You may support us by sharing our website to your friends.</p>
+                        <div class="special-offer">
+                            <span class="offer">off<br><em>50%</em></span>
+                            <h6>Valide: <em>24 April 2036</em></h6>
+                            <h4>Special Offer <em>50%</em> OFF!</h4>
+                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-us-content">
+                        <form id="contact-form" action="" method="post">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <input type="name" name="name" id="name"
+                                            placeholder="Your Name..." autocomplete="on" required>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*"
+                                            placeholder="Your E-mail..." required="">
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <button type="submit" id="form-submit" class="orange-button">Send Message
+                                            Now</button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="col-lg-12">
+                <p>Copyright © 2036 Softearner Organization. All rights reserved. </p>
+            </div>
+        </div>
     </footer>
-</div>
-<!-- Body End -->
-@endsection
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('main/assets/js/isotope.min.js') }}"></script>
+    <script src="{{ asset('main/assets/js/owl-carousel.js') }}"></script>
+    <script src="{{ asset('main/assets/js/counter.js') }}"></script>
+    <script src="{{ asset('main/assets/js/custom.js') }}"></script>
+
+
+</body>
+
+</html>

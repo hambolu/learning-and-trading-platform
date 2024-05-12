@@ -83,7 +83,7 @@
                                             </div>
 
                                             <a href="/marketplace/{{ $item->id }}" class="crse14s">{{ $item->name }}</a>
-
+<a href="/add_to_cart" class="btn btn-primary"> Add to Cart</a>
                                         </div>
                                     </div>
                                 </div>

@@ -57,7 +57,7 @@
                                         </div>
                                     </div>
                                     <div class="_215b05">
-                                        Last updated {{ $course->updated_at->format('M d, Y') }}
+                                        Last updated {{ $course->updated_at->format('M d, Y') }} | <a href="/add_to_cart" class="btn btn-primary"> Add to Cart</a>
                                     </div>
                                     <div class="live_user_dt pt-2 mt-2">
                                         <div class="user_img5 text-center">

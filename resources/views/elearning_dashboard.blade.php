@@ -13,7 +13,7 @@
                 @include('partial.create-category')
                 @include('partial.payout')
                 <div class="row">
-                    <div class="col-xl-9 col-lg-8">
+                    <div class="col">
 
                         <div class="section3125">
                             <h4 class="item_title">Categories</h4>
@@ -69,24 +69,35 @@
                                                 </a>
                                                 <div class="fcrse_content">
                                                     <div class="eps_dots more_dropdown">
-                                                       
-                                                        
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#share_post_modal"><i class='uil uil-ellipsis-v'></i>
-                                                
-                                                                <div class="dropdown-content">
-                                                                    <span><i class='uil uil-share-alt'></i>Share</span>
-                
-                                                                </div>
-                                                            </a>
-                                                            
-                                                        
+
+
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#share_post_modal"><i
+                                                                class='uil uil-ellipsis-v'></i>
+
+                                                            <div class="dropdown-content">
+                                                                <span><i class='uil uil-share-alt'></i>Share</span>
+
+                                                            </div>
+                                                        </a>
+
+
                                                     </div>
                                                     <div class="vdtodt">
                                                         <span class="vdt14">109k views</span>
                                                         <span class="vdt14">15 days ago</span>
                                                     </div>
                                                     <a href="/course_detail_view/{{ $item->id }}"
-                                                        class="crse14s">{{ $item->short_description }}</a>
+                                                        class="crse14s">
+                                                        @php
+                                                            
+                                                            $words = str_word_count($item->short_description, 1);
+                                                            $trimmed = implode(' ', array_slice($words, 0, 10));
+                                                        @endphp
+                                                    
+                                                    {{ $trimmed }}
+                                                    
+                                                    </a>
                                                     <a href="#" class="crse-cate">{{ $item->title }}</a>
                                                     <div class="auth1lnkprce">
                                                         <p class="cr1fot">By <a href="#">John Doe</a></p>
@@ -99,8 +110,9 @@
                                                                 NGN {{ number_format($item->price) }}
                                                             @endif
                                                         </div>
-                                                        <button class="shrt-cart-btn" title="cart"><i
-                                                                class="uil uil-shopping-cart-alt"></i></button>
+
+                                                        <a href="/add_to_cart" class="shrt-cart-btn"> <i
+                                                                class="uil uil-shopping-cart-alt" style="font-size: 15px;">Add to Cart</i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -111,56 +123,7 @@
                         </div>
 
                     </div>
-                    <div class="col-xl-3 col-lg-4">
-                        <div class="right_side">
-                            <div class="fcrse_2 mb-30">
-                                <div class="tutor_img">
-                                    <a href="#"><img src="{{ asset('images/left-imgs/img-10.jpg') }}"
-                                            alt=""></a>
-                                </div>
-                                <div class="tutor_content_dt">
-                                    <div class="tutor150">
-                                        <a href="#" class="tutor_name">{{ Auth::user()->name }}</a>
-                                        <div class="mef78" title="Verify">
-                                            <i class="uil uil-check-circle"></i>
-                                        </div>
-                                    </div>
-
-                                    <ul class="tutor_social_links">
-                                        <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#" class="ln"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#" class="yu"><i class="fab fa-youtube"></i></a></li>
-                                    </ul>
-
-                                    <a href="/profile" class="prfle12link">Go To Profile</a>
-                                    <p>Wallet Balance: {{ Auth::user()->wallet->balance ?? 0.0 }}
-                                    </p>
-                                    <div class="d-flex">
-                                        <button class="btn btn-primary" style="font-size: 12px;" title="Add Fund"
-                                            data-bs-toggle="modal" data-bs-target="#add_fund">Add Funds</button>
-                                        <button class="btn btn-primary" style="font-size: 12px;" title="Pay Out"
-                                            data-bs-toggle="modal" data-bs-target="#payout">Pay Out</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="fcrse_3">
-                                <div class="cater_ttle">
-                                    <h4>Top Categories</h4>
-                                </div>
-                                <ul class="allcate15">
-                                    @foreach (\App\Models\CourseCategory::all() as $item)
-                                        <li><a href="#" class="ct_item"><i
-                                                    class='uil uil-dot'></i>{{ $item->name }}</a>
-                                        </li>
-                                    @endforeach
-
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
+                   
 
                 </div>
                 @include('partial.fund-wallet')

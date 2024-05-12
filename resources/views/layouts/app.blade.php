@@ -42,17 +42,15 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/share.js') }}"></script>
-   
-    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/OwlCarousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap-select/docs/docs/dist/js/bootstrap-select.js') }}"></script>
     <script src="{{ asset('vendor/semantic/semantic.min.js') }}"></script>
     <script src="{{ asset('js/night-mode.js') }}"></script>
     <script src="{{ asset('js/jquery-steps.min.js') }}"></script>
-
+    <!-- Share.js -->
+    <script src="{{ asset('js/share.js') }}"></script>
+    <!-- Additional scripts -->
     <script>
         $(document).ready(function() {
             // Hide all submenus initially
@@ -64,6 +62,18 @@
                 $(this).siblings('.sub_menu').toggle();
             });
         });
+    </script>
+    <script>
+        function copyToClipboard(text) {
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            
+            alert("Link copied to clipboard!");
+        }
     </script>
     <script>
         ClassicEditor.create( document.querySelector( '#editor1' ) )
@@ -78,9 +88,9 @@
     </script> 
     <script>
         $('#add-course-tab').steps({
-          onFinish: function () {
-            alert('Wizard Completed');
-          }
+            onFinish: function () {
+                alert('Wizard Completed');
+            }
         });     
     </script>
     <script>

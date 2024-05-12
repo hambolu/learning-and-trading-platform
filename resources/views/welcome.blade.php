@@ -698,7 +698,7 @@
     <footer>
         <div class="container">
             <div class="col-lg-12">
-                <p>Copyright © 2036 Softearner Organization. All rights reserved. </p>
+                <p>Copyright © {{ date('Y') }} Softearner. All rights reserved. </p>
             </div>
         </div>
     </footer>

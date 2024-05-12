@@ -48,6 +48,11 @@
                                             <a href="https://wa.me/?text={{ url('/') . '/' . $post->slug }}" class="share-icon" target="_blank">
                                                 <img width="28" src="https://img.icons8.com/color/28/000000/whatsapp--v2.png" alt="WhatsApp">
                                             </a>
+
+                                            <a href="#" class="share-icon" id="copyLink" onclick="copyToClipboard('{{ url('/') . '/' . $item->slug }}')">
+                                                <img width="28" src="https://img.icons8.com/fluency/28/copy.png" alt="copy"/>
+                                            </a>
+                                            
                                         </div>
                                     </div>
                                     

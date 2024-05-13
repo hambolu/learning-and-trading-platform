@@ -8,9 +8,11 @@ use App\Http\Controllers\MerchantController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -29,19 +31,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login/google', [RegisteredUserController::class, 'googleLogin'])->name('login.google');
+Route::get('/login/google/callback', [RegisteredUserController::class, 'socialLogin']);
 Route::get('/optimize-clear', function () {
     $exitCode = Artisan::call('optimize:clear');
-
-    // Check the exit code to determine if the command was successful
-    if ($exitCode === 0) {
-        return 'Optimization cache cleared successfully.';
-    } else {
-        return 'An error occurred while clearing optimization cache.';
-    }
+    return $exitCode === 0 ? 'Optimization cache cleared successfully.' : 'An error occurred while clearing optimization cache.';
 });
-Route::get('/login/google', [RegisteredUserController::class, 'googleLogin'])->name('login.google');
-
-Route::get('/login/google/callback', [RegisteredUserController::class, 'socialLogin']);
 
 // Authenticated Routes
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -50,15 +45,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/sma_dashboard', [DashboardController::class, 'sma_dashboard'])->name('sma_dashboard');
     Route::get('/elearning_dashboard', [DashboardController::class, 'elearning_dashboard'])->name('elearning_dashboard');
     Route::get('/seller_dashboard', [DashboardController::class, 'seller_dashboard'])->name('seller_dashboard');
+
     Route::get('/courses/search', [CourseController::class, 'search'])->name('courses.search');
     Route::put('/system-settings', 'SystemSettingController@update')->name('system-settings.update');
     Route::get('/course_detail_view/{id}', [CourseController::class, 'showCourse']);
     Route::get('/category_detail_view/{id}', [CourseController::class, 'showCoursesByCategory']);
+
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Transactions
+    Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions.index');
+    Route::get('/transactions/{id}', [TransactionController::class, 'show'])->name('transactions.show');
+    Route::post('/transactions/{id}/refund', [TransactionController::class, 'refund'])->name('transactions.refund');
+    Route::post('/transactions/{id}/cancel', [TransactionController::class, 'cancel'])->name('transactions.cancel');
+    Route::get('/user/transactions', [TransactionController::class, 'userTransactions'])->name('user.transactions');
 
     // User Management
     Route::get('/elearning-users', [DashboardController::class, 'elearningUsers'])->name('elearning-users.index');
@@ -75,8 +78,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/send-message', [MessageController::class, 'showMessageForm'])->name('show-message-form');
     Route::post('/send-message', [MessageController::class, 'sendMessage']);
 
-
     Route::post('/create_product', [MerchantController::class, 'storeProduct'])->name('create_product');
+    
     // Course Creation Routes
     Route::get('/create-course', function () {
         return view('create-course');
@@ -90,7 +93,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/curricullum', function () {
         return view('curricullum');
     });
-
     Route::get('/setting', function () {
         return view('setting');
     });

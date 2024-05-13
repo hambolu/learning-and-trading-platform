@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::get('/link-storage', function () {
+    // Execute the storage:link Artisan command
+    Artisan::call('storage:link');
+
+    return 'Storage symlink created successfully!';
+});
 
 
 // Public Routes

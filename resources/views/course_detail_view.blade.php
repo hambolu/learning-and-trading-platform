@@ -34,12 +34,12 @@
                                         <h2>{{ $course->title }}</h2>
                                         <span class="_215b04">{{ $course->short_description }}</span>
                                     </div>
-                                    <div class="_215b05">
+                                    {{-- <div class="_215b05">
                                         <div class="crse_reviews mr-2">
                                             <i class="uil uil-star"></i>5.3.2
                                         </div>
                                         (81,665 ratings)
-                                    </div>
+                                    </div> --}}
                                     <div class="_215b05">
                                         {{ $course->enrollments->count() ?? 0 }} students enrolled
                                     </div>
@@ -49,15 +49,15 @@
                                             English
                                         </div>
                                         <div class="_215b08">
-                                            <span><i class='uil uil-closed-captioning'></i></span>
+                                           
                                             <span>
-                                                {{ $course->audio_language }}
+                                                Language: {{ $course->audio_language }}
                                             </span>
 
                                         </div>
                                     </div>
                                     <div class="_215b05">
-                                        Last updated {{ $course->updated_at->format('M d, Y') }} | <a href="/add_to_cart" class="btn btn-primary"> Add to Cart</a>
+                                        Last updated {{ $course->updated_at->format('M d, Y') }} 
                                     </div>
                                     <div class="live_user_dt pt-2 mt-2">
                                         <div class="user_img5 text-center">
@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                                     <ul class="_215b31">
-                                        <li><button class="btn_adcart">Add to Cart</button></li>
+                                        
                                         <li><button class="btn_buy">Buy Now</button></li>
                                     </ul>
                                     <div class="_215fgt1">

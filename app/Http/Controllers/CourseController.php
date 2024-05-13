@@ -89,6 +89,14 @@ class CourseController extends Controller
     public function showCourse($id)
     {
         $course = Course::with('enrollments')->find($id);
-        return view('course_detail_view',compact('course'));
+        return view('course_detail_view', compact('course'));
+    }
+
+    public function showCoursesByCategory($categoryId)
+    {
+        $category = CourseCategory::findOrFail($categoryId);
+        $courses = $category->courses;
+
+        return view('category_detail_view', compact('courses','category'));
     }
 }

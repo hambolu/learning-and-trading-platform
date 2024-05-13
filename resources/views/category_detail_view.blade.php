@@ -11,7 +11,7 @@
         <div class="sa4d25">
             <div class="container-fluid">
                 <div class="section3125">
-                    <h4 class="item_title">Courses</h4>
+                    <h4 class="item_title">{{ $category->name }}</h4>
 
                     <div class="la5lo1 card shadow p-4">
 

@@ -15,22 +15,27 @@
                     
                     <div class="la5lo1">
                         <div class="row">
-                            @foreach ($category as $item)
-                                <div class="col">
-                                    <div class="stream_1">
-                                        <a href="#" class="stream_bg">
-                                            @if ($item->image)
-                                                <img src="{{ asset('storage/' . $item->image) }}"
-                                                    alt="{{ $item->name }}">
-                                            @else
-                                                <img src="{{ asset('images/default.webp') }}"
-                                                    alt="{{ $item->name }}">
-                                            @endif
-                                            <h4>{{ $item->name }}</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            @endforeach
+                            <div class="col">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Category Name</th>
+                                            <th scope="col">Number of Courses</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($category as $item)
+                                            <tr>
+                                                <td><a href="/category_detail_view/{{ $item->id }}">{{ $item->name }}</a></td>
+                                                <td>{{ $item->courses->count() ?? 0 }}</td>
+                                            </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                          
                         </div>
                     </div>
                 </div>

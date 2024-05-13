@@ -59,7 +59,7 @@
                     <div class="la5lo1">
                         <div class="row">
                             @foreach ($products as $item)
-                            @include('partial.share')
+                                @include('partial.share')
                                 <div class="col-md-4">
                                     <div class="fcrse_1 mb-20">
                                         <a href="" class="fcrse_img">
@@ -71,19 +71,24 @@
 
                                         </a>
                                         <div class="fcrse_content">
-                                            
+
                                             <div class="eps_dots more_dropdown">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#share_post_modal"><i class='uil uil-ellipsis-v'></i>
-                                                
+                                                <a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#share_post_modal"><i class='uil uil-ellipsis-v'></i>
+
                                                     <div class="dropdown-content">
                                                         <span><i class='uil uil-share-alt'></i>Share</span>
-    
+
                                                     </div>
                                                 </a>
                                             </div>
+<div class="row justify-content-between">
+    <a href="/marketplace/{{ $item->id }}"
+        class="crse14s">{{ $item->name }}</a>
+    <span>Price: NGN {{ number_format($item->price) }}</span>
+    <a href="/buy_now" class="btn btn-primary"> Buy Now</a>
 
-                                            <a href="/marketplace/{{ $item->id }}" class="crse14s">{{ $item->name }}</a>
-<a href="/add_to_cart" class="btn btn-primary"> Add to Cart</a>
+</div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,5 +99,4 @@
             </div>
         </div>
     </div>
-    
 @endsection

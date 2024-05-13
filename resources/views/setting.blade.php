@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="st_title"><i class='uil uil-cog'></i> Setting</h2>
+                        <h2 class="st_title"><i class='uil uil-user'></i> Profile</h2>
                         <div class="setting_tabs">
                             <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
                                 <li class="nav-item">

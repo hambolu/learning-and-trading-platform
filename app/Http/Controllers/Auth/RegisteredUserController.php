@@ -6,16 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\DashboardSelection;
 use App\Models\User;
 use App\Models\Wallet;
+use Exception;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
-use Exception;
 
 class RegisteredUserController extends Controller
 {
@@ -39,6 +40,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // Ensure unique email in 'users' table
             'password' => ['required', Rules\Password::defaults()],
+            
         ]);
 
         try {
@@ -47,6 +49,7 @@ class RegisteredUserController extends Controller
                 'name' => $validatedData['name'],
                 'email' => strtolower($validatedData['email']),
                 'password' => Hash::make($validatedData['password']),
+                'referral_code' => Str::random(8)
             ]);
 
             // Create a wallet for the user

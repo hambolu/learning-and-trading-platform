@@ -23,7 +23,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $user = User::find(Auth::id());
+        //$user = User::find(Auth::id());
         // $role = Role::where('name', 'super_admin')->first();
 
         // // Attach the role to the user
@@ -31,6 +31,8 @@ class DashboardController extends Controller
 
         $category = CourseCategory::all();
         $courses = Course::all();
+
+        $user = User::with(['courses','carts','wallet'])->find(Auth::id());
         
         return view('dashboard', compact('category', 'courses', 'user'));
     }

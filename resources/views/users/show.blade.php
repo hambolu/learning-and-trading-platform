@@ -26,7 +26,7 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Total Transaction</h5>
-                                <h2>{{ $user->courses->count() ?? 0 }}</h2>
+                                <h2>{{ $user->transactions->count() ?? 0 }}</h2>
 
                             </div>
                             <div class="card_dash_right">
@@ -38,7 +38,7 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Total Referral</h5>
-                                <h2>{{ $user->courses->count() ?? 0 }}</h2>
+                                <h2>0</h2>
 
                             </div>
                             <div class="card_dash_right">
@@ -50,7 +50,7 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Post Share</h5>
-                                <h2>{{ $user->courses->count() ?? 0 }}</h2>
+                                <h2>{{ $user->postShareCounts->count() ?? 0 }}</h2>
 
                             </div>
                             <div class="card_dash_right">
@@ -62,7 +62,7 @@
                         <div class="card_dash">
                             <div class="card_dash_left">
                                 <h5>Wallet Balance</h5>
-                                <h2>{{ $user->courses->count() ?? 0 }}</h2>
+                                <h2>NGN {{ $user->wallet->balance }}</h2>
 
                             </div>
                             <div class="card_dash_right">

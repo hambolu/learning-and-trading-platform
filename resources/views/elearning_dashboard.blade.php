@@ -129,7 +129,7 @@
                 @include('partial.fund-wallet')
             </div>
         </div>
-        @include('partial.footer')
+        
     </div>
     <!-- Body End -->
 @endsection

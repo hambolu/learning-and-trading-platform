@@ -70,6 +70,11 @@ class User extends Authenticatable
         return $this->hasMany(Cart::class);
     }
 
+    public function messages()
+    {
+        return $this->hasMany(Message::class,'recipient_id');
+    }
+
     public function transactions()
     {
         return $this->hasMany(Transaction::class);

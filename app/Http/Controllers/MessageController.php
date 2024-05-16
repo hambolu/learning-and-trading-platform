@@ -14,12 +14,13 @@ class MessageController extends Controller
     {
         $users = User::all();
         $user = User::find(Auth::id());
-        $message = Message::all();
-        return view('send-message', compact('users','user','message'));
+        $message = Message::latest()->get();
+        return view('send-message', compact('users', 'user', 'message'));
     }
     public function sendMessage(Request $request)
     {
         $senderId = auth()->user()->id;
+        $title = $request->input('title');
         $content = $request->input('content');
         $recipientIds = $request->input('recipient_ids');
 
@@ -33,25 +34,25 @@ class MessageController extends Controller
             // Send message to all users
             $users = User::where('id', '!=', $senderId)->get();
             foreach ($users as $user) {
-                $this->sendMessageToUser($senderId, $user->id, $content);
+                $this->sendMessageToUser($senderId, $user->id, $content, $title);
             }
         } else {
             // Send message to specific users
             foreach ($recipientIds as $recipientId) {
-                $this->sendMessageToUser($senderId, $recipientId, $content);
+                $this->sendMessageToUser($senderId, $recipientId, $content, $title);
             }
         }
 
         toastr()->success('Messages sent successfully!');
-            return back();
-        //return response()->json(['message' => 'Messages sent successfully']);
+        return back();
     }
 
-    private function sendMessageToUser($senderId, $recipientId, $content)
+    private function sendMessageToUser($senderId, $recipientId, $content, $title)
     {
         $message = new Message();
         $message->sender_id = $senderId;
         $message->recipient_id = $recipientId;
+        $message->title = $title;
         $message->content = $content;
         $message->save();
     }
@@ -63,7 +64,7 @@ class MessageController extends Controller
             toastr()->error('Messages not found!');
             return back();
         }
-        return view('show-message',compact('message'));
+        return view('show-message', compact('message'));
     }
 
     private function markAsRead(Request $request, Message $message)

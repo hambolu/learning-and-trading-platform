@@ -89,7 +89,6 @@ class DashboardController extends Controller
             $add_user = new Elearning();
             $add_user->user_id = Auth::id();
             $add_user->save();
-            return view('membership');
         }
 
         $category = CourseCategory::all();
@@ -106,7 +105,6 @@ class DashboardController extends Controller
             $add_user = new Merchant();
             $add_user->user_id = Auth::id();
             $add_user->save();
-            return view('membership');
         }
         $products = Product::where('seller_id', $user->id)->get();
         return view('seller_dashboard', compact('user','products'));

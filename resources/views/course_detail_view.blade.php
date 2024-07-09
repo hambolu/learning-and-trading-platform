@@ -45,15 +45,7 @@
                                     </div>
                                     <div class="_215b06">
                                         <div class="_215b07">
-                                            <span><i class='uil uil-comment'></i></span>
-                                            English
-                                        </div>
-                                        <div class="_215b08">
-                                           
-                                            <span>
-                                                Language: {{ $course->audio_language }}
-                                            </span>
-
+                                            Language: English
                                         </div>
                                     </div>
                                     <div class="_215b05">

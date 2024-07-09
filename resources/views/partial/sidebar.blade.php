@@ -4,7 +4,7 @@
             <ul>
                 @if (Auth::user()->roles->contains('name', 'super_admin'))
                     <li class="menu--item">
-                        <a href="/dashboard" class="menu--link active" title="Main Dashboard">
+                        <a href="/dashboard" class="menu--link" title="Main Dashboard">
                             <i class='uil uil-home-alt menu--icon'></i>
                             <span class="menu--label">Main Dashboard</span>
                         </a>
@@ -77,7 +77,7 @@
                     </li>
                 @else
                     <li class="menu--item">
-                        <a href="/dashboard" class="menu--link active" title="Main Dashboard">
+                        <a href="/dashboard" class="menu--link" title="Main Dashboard">
                             <i class='uil uil-home-alt menu--icon'></i>
                             <span class="menu--label">Main Dashboard</span>
                         </a>

@@ -11,9 +11,9 @@
         <div class="sa4d25">
             <div class="container-fluid">
                 <div class="section3125">
-                    <h4 class="item_title">{{ $category->name }}</h4>
 
-                    <div class="la5lo1 card shadow p-4">
+                    <div class="la5lo1 card shadow-sm border-0 p-4">
+                        <h4 class="item_title">{{ $category->name }}</h4>
 
                         <div class="row">
                             <div class="col">

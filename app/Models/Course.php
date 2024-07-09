@@ -9,8 +9,23 @@ class Course extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['title', 'description', 'price', 'is_paid'];
-
+    protected $fillable = [
+        'title',
+        'slug',
+        'short_description',
+        'course_description',
+        'skills',
+        'requirements',
+        'course_level',
+        'audio_language',
+        'category_id',
+        'video_url',
+        'course_type',
+        'regular_price',
+        'discount_price',
+        'course_thumbnail',
+        'price',
+    ];
     /**
      * Get the users enrolled in this course.
      */

@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <title>{{ env('APP_NAME') }}</title>
+    <title>Softearner</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -46,7 +46,7 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="/" class="logo">
-                            <h1>{{ env('APP_NAME') }}</h1>
+                            <h1>Softearner</h1>
                         </a>
                         <!-- ***** Logo End ***** -->
 

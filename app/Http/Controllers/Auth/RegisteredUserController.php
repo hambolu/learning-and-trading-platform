@@ -92,7 +92,7 @@ class RegisteredUserController extends Controller
                         'name' => $user->name,
                         'email' => $user->email,
                         'google_id' => $user->id,
-                        'password' => Hash::make(Str::random(8)),
+                        'password' => Hash::make(Str::random(18)),
                         // Add other user fields as needed
                     ]);
                     auth()->login($newUser, true);
